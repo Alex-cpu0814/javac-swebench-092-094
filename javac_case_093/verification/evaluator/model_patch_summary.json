@@ -1,0 +1,12 @@
+{
+  "instance_id": "ninia__jep-79",
+  "status": "resolved",
+  "reason": "all_tests_passed",
+  "test_command": "python setup.py test",
+  "test_exit_code": 0,
+  "model_patch": "/opt/javac_case_093/model_patch.diff",
+  "model_patch_sha256": "2423f4038206f833b32d647961e4cb20f54caf730b0d1fb98ddce7f035a4f0e2",
+  "logs": "/opt/javac_case_093/host_results/logs",
+  "fail_to_pass": ["test_version_unsafe.TestVersionUnsafe.test_version_unsafe"],
+  "pass_to_pass_count": 130
+}

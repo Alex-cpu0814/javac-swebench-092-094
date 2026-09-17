@@ -1,0 +1,13 @@
+diff --git a/src/jep/pyembed.c b/src/jep/pyembed.c
+index 63dd1bc..a9f7299 100644
+--- a/src/jep/pyembed.c
++++ b/src/jep/pyembed.c
+@@ -261,7 +261,7 @@ int pyembed_version_unsafe(void)
+     int         i         = 0;
+ 
+     pyversion = Py_GetVersion();
+-    version = malloc(sizeof(char) * strlen(pyversion));
++    version = malloc(sizeof(char) * (strlen(pyversion) + 1));
+     strcpy(version, pyversion);
+     major = version;
+ 

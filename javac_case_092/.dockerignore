@@ -1,0 +1,5 @@
+analysis/
+official_swebench/
+verification/
+*.xlsx
+*.ndjson

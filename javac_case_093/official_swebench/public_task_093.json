@@ -1,0 +1,12 @@
+{
+  "instance_id": "ninia__jep-79",
+  "repo": "ninia/jep",
+  "base_commit": "9eeb14c4c8b2d0e49feece90a6e330826b49c7dd",
+  "problem_statement": "JEP may crash during startup on some Python 3.5 installations because pyembed_version_unsafe copies the Python version string into a buffer allocated without space for the terminating null byte.",
+  "hints_text": "",
+  "created_at": "2017-05-24",
+  "version": "3.6.3",
+  "issue_id": 79,
+  "issue_url": "https://github.com/ninia/jep/issues/79",
+  "project_version": "3.6.3"
+}

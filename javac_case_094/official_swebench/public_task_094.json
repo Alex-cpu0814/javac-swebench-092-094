@@ -1,0 +1,12 @@
+{
+  "instance_id": "ninia__jep-40",
+  "repo": "ninia/jep",
+  "base_commit": "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6",
+  "problem_statement": "JEP fails to convert a Python dictionary containing None keys or values into a Java Map. A None key or value should be represented as Java null without causing the entire conversion to fail.",
+  "hints_text": "",
+  "created_at": "2016-02-23",
+  "version": "3.5.0",
+  "issue_id": 40,
+  "issue_url": "https://github.com/ninia/jep/issues/40",
+  "project_version": "3.5.0"
+}

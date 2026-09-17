@@ -1,0 +1,90 @@
+diff --git a/src/jep/test/TestVersionUnsafe.java b/src/jep/test/TestVersionUnsafe.java
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/src/jep/test/TestVersionUnsafe.java
+@@ -0,0 +1,17 @@
++package jep.test;
++
++import jep.Jep;
++
++/**
++ * Starts and closes the top-level Jep interpreter.
++ *
++ * The native startup path calls pyembed_version_unsafe().
++ */
++public class TestVersionUnsafe {
++
++    public static void main(String[] args) throws Exception {
++        Jep jep = new Jep(false, System.getProperty("java.library.path"));
++        jep.close();
++    }
++
++}
++
+diff --git a/tests/test_version_unsafe.py b/tests/test_version_unsafe.py
+new file mode 100644
+index 0000000..0000000
+--- /dev/null
++++ b/tests/test_version_unsafe.py
+@@ -0,0 +1,60 @@
++import os
++import subprocess
++import sys
++import unittest
++
++from java.lang import System
++
++from tests.jep_pipe import build_java_process_cmd
++
++
++class TestVersionUnsafe(unittest.TestCase):
++
++    def test_version_unsafe(self):
++        # Rebuild the native extension with AddressSanitizer so the one-byte
++        # overflow in the Base implementation is detected deterministically.
++        env = os.environ.copy()
++        compiler = env.get('CC', 'gcc')
++        try:
++            asan = subprocess.check_output(
++                [compiler, '-print-file-name=libasan.so'])
++            asan = asan.decode().strip()
++        except (OSError, subprocess.CalledProcessError):
++            self.skipTest('GCC AddressSanitizer is unavailable')
++
++        if not asan or not os.path.isfile(asan):
++            self.skipTest('GCC AddressSanitizer is unavailable')
++
++        for variable in ('CFLAGS', 'LDFLAGS'):
++            current = env.get(variable, '').strip()
++            env[variable] = (current + ' -fsanitize=address').strip()
++
++        # Do not preload ASan into the Python process that performs the build.
++        # Python 3.5 exits with interpreter allocations still live, which
++        # makes LeakSanitizer report a false failure before the test starts.
++        build_env = env.copy()
++        build_env.pop('LD_PRELOAD', None)
++        java_home = System.getProperty('java.home')
++        if java_home.endswith(os.sep + 'jre'):
++            java_home = java_home[:-len(os.sep + 'jre')]
++        build_env['JAVA_HOME'] = java_home
++
++        preload = [asan]
++        if env.get('LD_PRELOAD'):
++            preload.append(env['LD_PRELOAD'])
++        env['LD_PRELOAD'] = os.pathsep.join(preload)
++        env['ASAN_OPTIONS'] = 'detect_leaks=0:halt_on_error=1'
++
++        subprocess.check_call(
++            [sys.executable, 'setup.py', 'build_ext', '--force'],
++            env=build_env)
++
++        process = subprocess.Popen(
++            build_java_process_cmd('jep.test.TestVersionUnsafe'),
++            stdout=subprocess.PIPE,
++            stderr=subprocess.PIPE,
++            env=env)
++        stdout, stderr = process.communicate()
++        if process.returncode != 0:
++            self.fail(stderr or stdout)
++

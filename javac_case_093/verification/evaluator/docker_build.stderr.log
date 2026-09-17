@@ -1,0 +1,58 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 2.11kB done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk-jammy
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 104B done
+#3 DONE 0.0s
+
+#4 [1/8] FROM docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d
+#4 resolve docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 3.80kB done
+#5 DONE 0.0s
+
+#6 [2/8] RUN apt-get update     && apt-get install -y --no-install-recommends         ca-certificates         curl         file         g++         gcc         git         libasan6         libbz2-dev         libffi-dev         liblzma-dev         libncurses5-dev         libreadline-dev         libsqlite3-dev         libssl-dev         make         patch         tar         tk-dev         uuid-dev         xz-utils         zlib1g-dev     && apt-get clean     && rm -rf /var/lib/apt/lists/*
+#6 CACHED
+
+#7 [3/8] RUN curl -fsSL "https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz"         -o /tmp/Python-3.5.3.tgz     && mkdir -p /tmp/python-src     && tar -xzf /tmp/Python-3.5.3.tgz -C /tmp/python-src --strip-components=1     && cd /tmp/python-src     && ./configure --prefix=/opt/python-3.5.3 --enable-shared     && make -j"$(nproc)"     && make install     && echo "/opt/python-3.5.3/lib" > /etc/ld.so.conf.d/python-3.5.3.conf     && ldconfig     && ln -sf /opt/python-3.5.3/bin/python3.5 /usr/local/bin/python     && ln -sf /opt/python-3.5.3/bin/python3.5 /usr/local/bin/python3     && rm -rf /tmp/Python-3.5.3.tgz /tmp/python-src
+#7 CACHED
+
+#8 [4/8] WORKDIR /opt/javac_case_093
+#8 CACHED
+
+#9 [5/8] COPY source/base_9eeb14c.tar.gz /opt/javac_case_093/jep_base_9eeb14c.tar.gz
+#9 CACHED
+
+#10 [6/8] COPY patches/test_patch.diff /opt/javac_case_093/test_patch.diff
+#10 CACHED
+
+#11 [7/8] COPY evaluator/run_model_patch.sh /opt/javac_case_093/run_model_patch.sh
+#11 DONE 0.0s
+
+#12 [8/8] RUN chmod +x /opt/javac_case_093/run_model_patch.sh     && python --version     && javac -version     && gcc --version | head -n 1
+#12 0.150 Python 3.5.3
+#12 0.236 javac 1.8.0_502
+#12 0.241 gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+#12 DONE 0.2s
+
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 0.1s done
+#13 exporting manifest sha256:b814d3dd7a40389ebd96e24eeab8fc9d96f2f255aa4972ba6ff0fb44a1de3425 0.0s done
+#13 exporting config sha256:662f667173024c71dd4d7957efb497122c407fbcda4d1055c6baadb0060b1892 done
+#13 exporting attestation manifest sha256:ffffb47605d9738e351f285bb62e2eda8395e2e275594d8b2219ee5fb26953a3 0.0s done
+#13 exporting manifest list sha256:861c39da18e64e75447afb5b0e91bdb6d9576918597c3cc6637d89ac734a883b done
+#13 naming to docker.io/library/javac-case-093-jep:model-evaluator
+#13 naming to docker.io/library/javac-case-093-jep:model-evaluator done
+#13 unpacking to docker.io/library/javac-case-093-jep:model-evaluator 0.0s done
+#13 DONE 0.1s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/ne5er3hl26aruongz5u790z6u

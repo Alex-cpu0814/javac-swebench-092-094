@@ -1,0 +1,12 @@
+{
+  "instance_id": "ninia__jep-40",
+  "status": "resolved",
+  "reason": "all_tests_passed",
+  "test_command": "python setup.py build; java -cp build/java:build/java/test jep.Run runtests.py",
+  "test_exit_code": 0,
+  "model_patch": "/opt/javac_case_094/model_patch.diff",
+  "model_patch_sha256": "d20779bc3891ca426c30e2641c06da571a040009cd007d46d02c7baff6801e92",
+  "logs": "/opt/javac_case_094/host_results/logs",
+  "fail_to_pass": ["test_none_dictionary.TestNoneDictionaryRegression.test_none_dictionary"],
+  "pass_to_pass_count": 95
+}

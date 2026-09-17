@@ -1,0 +1,80 @@
+diff --git a/src/jep/test/TestNoneDictionary.java b/src/jep/test/TestNoneDictionary.java
+new file mode 100644
+index 0000000..b4db6e1
+--- /dev/null
++++ b/src/jep/test/TestNoneDictionary.java
+@@ -0,0 +1,37 @@
++package jep.test;
++
++import java.util.Map;
++
++import jep.Jep;
++
++/**
++ * Regression test for Issue #40: Python None keys and values must survive
++ * conversion to a Java Map as Java null references.
++ */
++public class TestNoneDictionary {
++
++    public static void test() throws Exception {
++        Jep jep = null;
++        try {
++            jep = new Jep(false, ".");
++            jep.eval("x = {'value_none': None, None: 'key_none'}");
++            Map<?, ?> result = (Map<?, ?>) jep.getValue("x");
++            if (result == null) {
++                throw new AssertionError("dictionary converted to null");
++            }
++            if (result.size() != 2) {
++                throw new AssertionError("expected 2 entries, got " + result.size());
++            }
++            if (result.get("value_none") != null) {
++                throw new AssertionError("None value was not converted to Java null");
++            }
++            if (!"key_none".equals(result.get(null))) {
++                throw new AssertionError("None key was not converted to Java null");
++            }
++        } finally {
++            if (jep != null) {
++                jep.close();
++            }
++        }
++    }
++}
+diff --git a/runtests.py b/runtests.py
+index 2ac7d77..0e1a0a2 100644
+--- a/runtests.py
++++ b/runtests.py
+@@ -9,5 +9,5 @@ sys.path.insert(0, '')
+ 
+ if __name__ == '__main__':
+     try:
+-        unittest.main(module='tests')
++        unittest.main(module='tests', verbosity=2)
+     except SystemExit:
+         pass
+diff --git a/tests/__init__.py b/tests/__init__.py
+index 8fd4d2b..0b1c9e2 100644
+--- a/tests/__init__.py
++++ b/tests/__init__.py
+@@ -14,0 +15,1 @@
++from .test_none_dictionary import *
+diff --git a/tests/test_none_dictionary.py b/tests/test_none_dictionary.py
+new file mode 100644
+index 0000000..c5f4a2e
+--- /dev/null
++++ b/tests/test_none_dictionary.py
+@@ -0,0 +1,13 @@
++from __future__ import print_function
++
++import unittest
++
++import jep
++
++TestNoneDictionary = jep.findClass('jep.test.TestNoneDictionary')
++
++
++class TestNoneDictionaryRegression(unittest.TestCase):
++
++    def test_none_dictionary(self):
++        TestNoneDictionary.test()

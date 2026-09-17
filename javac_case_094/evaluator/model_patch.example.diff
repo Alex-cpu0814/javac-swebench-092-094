@@ -1,0 +1,17 @@
+diff --git a/src/jep/pyembed.c b/src/jep/pyembed.c
+index 6e2d900..fbe9455 100644
+--- a/src/jep/pyembed.c
++++ b/src/jep/pyembed.c
+@@ -1239,10 +1239,10 @@ jobject pyembed_box_py(JNIEnv *env, PyObject *result)
+         pos = 0;
+         while (PyDict_Next(result, &pos, &key, &value)) {
+             jkey = pyembed_box_py(env, key);
+-            if (!jkey) {
++            if (jkey == NULL && PyErr_Occurred()) {
+                 return NULL;
+             }
+             jvalue = pyembed_box_py(env, value);
+-            if (!jvalue) {
++            if (jvalue == NULL && PyErr_Occurred()) {
+                 return NULL;
+             }

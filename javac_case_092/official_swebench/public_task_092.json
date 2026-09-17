@@ -1,0 +1,12 @@
+{
+  "instance_id": "ninia__jep-77",
+  "repo": "ninia/jep",
+  "base_commit": "d14567567ac1281e978790b9170c981113de282f",
+  "problem_statement": "JEP cannot execute a compiled Python script through Jep.runScript() on Python 3.5.3, although the corresponding source script can be executed. The compiled script should run through the Java-to-C embedding path.",
+  "hints_text": "",
+  "created_at": "2017-05-19",
+  "version": "3.6.3",
+  "issue_id": 77,
+  "issue_url": "https://github.com/ninia/jep/issues/77",
+  "project_version": "3.6.3"
+}

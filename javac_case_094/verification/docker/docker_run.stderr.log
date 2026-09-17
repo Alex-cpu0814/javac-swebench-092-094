@@ -1,0 +1,6 @@
+javac 1.8.0_502
+openjdk version "1.8.0_502"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_502-b07)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.502-b07, mixed mode)
+warning: runtests.py has type 100755, expected 100644
+warning: runtests.py has type 100755, expected 100644
