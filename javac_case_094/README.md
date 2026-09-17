@@ -14,7 +14,7 @@ This directory follows the common Java-C to SWE-bench-compatible case layout.
 - `source/`: Base and Fix source archives, stored once.
 - `patches/`: upstream gold patch and the exact regression-test patch.
 - `official_swebench/`: private/public records and metadata.
-- `docker/`: Base/Fix reproduction image and runner.
+- Docker Hub image: `yutu0814/javac-case-094-jep:repro` (prebuilt; see the repository README).
 - `evaluator/`: model-patch evaluator without the Fix archive or gold patch.
 - `verification/`: Docker and evaluator logs/results.
 

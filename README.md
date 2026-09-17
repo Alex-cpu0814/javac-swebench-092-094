@@ -10,7 +10,7 @@ The cases are from the `ninia/jep` project:
 | 093 | `ninia__jep-79` | 79 | 1 | 130 |
 | 094 | `ninia__jep-40` | 40 | 1 | 95 |
 
-Each case contains the source snapshots, patches, official-field-compatible records, Docker reproduction environment, model-patch evaluator, and verification logs.
+Each case contains the source snapshots, patches, official-field-compatible records, references to prebuilt Docker Hub images, the model-patch evaluator, and verification logs.
 
 ## Repository Layout
 
@@ -27,7 +27,6 @@ analysis/          Source-row mapping, bug analysis, and provenance
 source/            Base and Fix source archives
 patches/           gold_patch.diff and test_patch.diff
 official_swebench/ SWE-bench-compatible JSON/JSONL records and metadata
-docker/            Base/Fix reproduction Dockerfile and runner
 evaluator/         Model-patch evaluator and example patch
 verification/      Docker and evaluator logs and summaries
 ```
@@ -51,9 +50,15 @@ yutu0814/javac-case-094-jep:repro
 yutu0814/javac-case-094-jep:model-evaluator
 ```
 
-The `repro` image runs the Base and Fix comparison. The `model-evaluator` image contains the Base source, regression test, and evaluator; it does not contain the Fix archive or the gold patch.
+The `repro` image runs the Base and Fix comparison. The `model-evaluator` image contains the Base source, regression test, and evaluator; it does not contain the Fix archive or the gold patch. The images are prebuilt and published on Docker Hub, so Dockerfiles and image build scripts are omitted from this public release.
 
 Docker Desktop must be running with Linux containers enabled.
+
+## Release Scope
+
+This public repository distributes the dataset records and usage entry points. Docker images are prebuilt and published on Docker Hub. Dockerfiles, container entrypoint scripts, and image build scripts are intentionally omitted from this release.
+
+The original construction materials remain outside this public release. Users can pull the prebuilt images directly from Docker Hub.
 
 ## Reproduce a Case
 
@@ -71,7 +76,7 @@ The expected result is that the Base revision fails the regression test and the 
 The recommended entry point is the Python wrapper below. It works on Windows,
 Linux, and macOS and uses the evaluator image from Docker Hub.
 
-The host only needs Python 3.8 or newer and Docker. The historical project
+The host only needs Python 3.5 or newer and Docker. The historical project
 environment remains inside the Docker image.
 
 ```text

@@ -1,19 +1,15 @@
 # Case 094 model-patch evaluator
 
-Build from this case directory with:
+The evaluator image is prebuilt and published on Docker Hub:
 
-```powershell
-Set-Location <case-directory>
-.\evaluatoruild_model_evaluator.ps1
-```
+yutu0814/javac-case-094-jep:model-evaluator
 
-Evaluate a patch with:
+From the repository root, run:
 
-```powershell
-.\evaluator\evaluate_model_patch.ps1 `
-  -PatchPath .\evaluator\model_patch.example.diff
-```
+python tools/evaluate_model_patch.py --case-dir javac_case_094 --image yutu0814/javac-case-094-jep:model-evaluator --patch ./my_model_patch.diff --pull
 
-The evaluator image contains only the Base archive, the regression test patch,
-and the evaluator. It does not contain the Fix archive or the gold patch.
-Results and logs are written under `verification/evaluator/`.
+The result is written to:
+
+javac_case_094/verification/evaluator/model_patch_summary.json
+
+The image contains the Base source, regression test, and evaluator. It does not contain the Fix archive or the gold patch.
