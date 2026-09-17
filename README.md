@@ -66,7 +66,31 @@ docker run --rm yutu0814/javac-case-092-jep:repro
 
 The expected result is that the Base revision fails the regression test and the Fix revision passes the runnable test suite.
 
-## Evaluate a Model Patch
+## Cross-platform Python Evaluator
+
+The recommended entry point is the Python wrapper below. It works on Windows,
+Linux, and macOS and uses the evaluator image from Docker Hub.
+
+The host only needs Python 3.8 or newer and Docker. The historical project
+environment remains inside the Docker image.
+
+```text
+python tools/evaluate_model_patch.py --case-dir javac_case_092 --image yutu0814/javac-case-092-jep:model-evaluator --patch ./my_model_patch.diff --pull
+```
+
+Replace `092` in the case directory and image name for cases 093 and 094.
+The result is written to:
+
+```text
+javac_case_092/verification/evaluator/model_patch_summary.json
+```
+
+The command exits with status `0` for `resolved`, `1` when the patch does not
+pass, and `2` when Docker or the result file cannot be used.
+
+## Windows PowerShell Evaluator
+
+The original PowerShell wrapper remains available for Windows users:
 
 From a cloned repository, run the evaluator script for the selected case. For case 092:
 
