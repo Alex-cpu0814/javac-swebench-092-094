@@ -62,6 +62,70 @@ means evaluator/infrastructure error.
 The included `patches/gold_patch.diff` is an upstream maintainer control, not
 a model-generated answer. Do not use it when measuring model repair ability.
 
+### Use a model-generated patch
+
+The normal model-evaluation workflow is:
+
+1. Give the model the public task record. For example, case 093 uses
+   `javac_case_093/official_swebench/public_task_093.json`. This record contains
+   the repository, Base commit, issue description, and project version. It does
+   not contain the gold patch or the protected test patch.
+2. Ask the model to return a Git unified diff based on the recorded Base commit.
+   The output should be an applyable patch, not a prose explanation or a full
+   replacement file. A useful instruction is:
+
+   ```text
+   Return only a Git unified diff that can be applied with `git apply`.
+   Do not include Markdown code fences or explanatory text.
+   ```
+
+3. Save the model output as a file, for example
+   `C:\temp\case093-model.patch`. If the model wrapped the diff in
+   ```` ```diff ```` fences, remove those fences and keep only the diff. The
+   candidate patch should change production code; the evaluator applies the
+   protected test patch separately.
+4. Optionally validate the patch against a clean local checkout of the case's
+   Base commit before using Docker:
+
+   ```powershell
+   git apply --check C:\temp\case093-model.patch
+   ```
+
+   This check is meaningful only when run from a checkout at the exact Base
+   commit. It is not necessary to build the project locally.
+5. Run the evaluator from the selected case directory:
+
+   ```powershell
+   Set-Location .\javac_case_093
+   python .\evaluator\evaluate_model_patch.py `
+     --patch C:\temp\case093-model.patch `
+     --label model-1
+   ```
+
+   Use `javac_case_094` and `case094-model.patch` for case 094. The evaluator
+   mounts the candidate patch into a clean Docker container, applies it first,
+   applies the protected tests second, builds the project, and grades the test
+   results. Do not manually copy the patch into the Docker image.
+6. Inspect the newest directory under `verification/runs/<run-id>/`:
+
+   ```powershell
+   $run = Get-ChildItem .\verification\runs -Directory |
+     Sort-Object LastWriteTime -Descending |
+     Select-Object -First 1
+   Get-Content (Join-Path $run.FullName 'summary.json')
+   Get-Content (Join-Path $run.FullName 'grading.json')
+   ```
+
+   `resolved` means the candidate satisfies the case's FAIL_TO_PASS and
+   PASS_TO_PASS expectations. `unresolved` means the evaluator ran but the
+   repair did not satisfy them. `error` means the evaluator or infrastructure
+   failed. For diagnostics, inspect `model-patch.raw.log`,
+   `test-patch.raw.log`, `project-build.raw.log`, and `tests.raw.log` in the
+   same run directory. A `model_patch_apply_failed` result usually means the model
+   output was not a valid diff for the Base commit; a
+   `candidate_conflicts_with_test_patch` result means the candidate modified
+   files or lines reserved for the protected tests.
+
 ### Build the image locally (maintainers)
 
 ```powershell
