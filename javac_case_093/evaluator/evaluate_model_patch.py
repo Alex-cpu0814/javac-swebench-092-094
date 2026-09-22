@@ -82,8 +82,12 @@ def parse_test_log(text):
             start = TEST_START_LINE.match(line)
             if start:
                 pending = "{}.{}".format(start.group("class"), start.group("method"))
+                if pending.startswith("tests."):
+                    pending = pending[len("tests."):]
             continue
         test_id = "{}.{}".format(match.group("class"), match.group("method"))
+        if test_id.startswith("tests."):
+            test_id = test_id[len("tests."):]
         statuses[test_id] = normalize_status(match.group("status"))
     return statuses
 

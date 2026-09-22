@@ -23,7 +23,7 @@ new file mode 100644
 index 0000000..0000000
 --- /dev/null
 +++ b/tests/test_version_unsafe.py
-@@ -0,0 +1,40 @@
+@@ -0,0 +1,39 @@
 +from __future__ import print_function
 +
 +import glob
@@ -37,7 +37,6 @@ index 0000000..0000000
 +class TestVersionUnsafe(unittest.TestCase):
 +
 +    def test_version_unsafe(self):
-+        """Run the regression through the project's standard child runner."""
 +        build_libs = [
 +            path for path in glob.glob(os.path.join('build', 'lib*'))
 +            if os.path.isdir(os.path.join(path, 'jep'))

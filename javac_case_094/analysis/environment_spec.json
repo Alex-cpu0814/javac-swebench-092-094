@@ -1,0 +1,15 @@
+{
+  "instance_id": "ninia__jep-40",
+  "repo": "ninia/jep",
+  "base_commit": "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6",
+  "fix_commit": "8144158fdaf3db44681e5eb4ef9a77907e4746b4",
+  "base_image": "eclipse-temurin:8-jdk-jammy",
+  "glibc": "2.17",
+  "python": "CPython 3.5.3",
+  "java": "OpenJDK 8",
+  "compiler": "GCC",
+  "test_command": "python setup.py test",
+  "test_source": "dataset_construction_test_derived_from_later_upstream_issue_test",
+  "base_failure": "None dictionary conversion regression",
+  "fix_result": "96 tests, OK"
+}

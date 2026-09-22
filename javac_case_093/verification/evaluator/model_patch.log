@@ -1,8 +1,0 @@
-error: patch failed: src/jep/pyembed.c:261
-error: src/jep/pyembed.c: patch does not apply
-
-[git apply failed; trying patch -p1 --fuzz=0]
-(Stripping trailing CRs from patch; use --binary to disable.)
-checking file src/jep/pyembed.c
-(Stripping trailing CRs from patch; use --binary to disable.)
-patching file src/jep/pyembed.c

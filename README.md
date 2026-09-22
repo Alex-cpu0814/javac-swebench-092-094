@@ -6,8 +6,8 @@ to a SWE-bench-compatible record format.
 | Case | Instance ID | Issue | FAIL_TO_PASS | PASS_TO_PASS | Evaluator generation |
 |---|---|---:|---:|---:|---|
 | 092 | `ninia__jep-77` | 77 | 1 | 121 | v3 single-image, runtime injection |
-| 093 | `ninia__jep-79` | 79 | 1 | 130 | legacy release |
-| 094 | `ninia__jep-40` | 40 | 1 | 95 | legacy release |
+| 093 | `ninia__jep-79` | 79 | 1 | 130 | v3 single-image, runtime injection (CentOS 7) |
+| 094 | `ninia__jep-40` | 40 | 1 | 95 | v3 single-image, runtime injection (Ubuntu) |
 
 ## Case 092
 
@@ -75,9 +75,24 @@ published image.
 
 ## Cases 093 and 094
 
-Cases 093 and 094 retain the earlier two-image/public-release structure for
-now. Their Docker Hub tags and usage instructions remain inside each case
-directory. They have not yet been migrated to the case-092 v3 template.
+Cases 093 and 094 use the same v3 isolation contract as case 092. Their clean
+images contain only the historical toolchain and a detached Base checkout.
+Case 093 uses CentOS 7 for allocator reproduction; case 094 uses the 092
+Ubuntu/Python 3.5.3 toolchain to avoid an unrelated allocator failure. Candidate
+patches, protected test patches, adapters, and grading assets are mounted at
+runtime; gold patches and Fix commits are not present in the images.
+
+Published images:
+
+```text
+yutu0814/javac-case-093-jep:benchmark-v3
+yutu0814/javac-case-094-jep:benchmark-v3
+```
+
+Run either evaluator from its case directory with
+`python evaluator/evaluate_model_patch.py --patch <candidate.diff>`. Build and
+run evidence follows the same `verification/builds/` and
+`verification/runs/` layout as case 092.
 
 ## Records and provenance
 

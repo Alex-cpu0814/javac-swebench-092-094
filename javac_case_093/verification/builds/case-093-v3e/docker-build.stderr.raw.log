@@ -1,0 +1,59 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.90kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/centos:7
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/5] FROM docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4
+#4 resolve docker.io/library/centos:7@sha256:be65f488b7764ad3638f236b7b515b3678369a5124c47b8d32916d6487418ea4 0.0s done
+#4 DONE 0.0s
+
+#5 [2/5] RUN sed -i 's|^mirrorlist=|#mirrorlist=|g; s|^#baseurl=http://mirror.centos.org|baseurl=http://vault.centos.org|g' /etc/yum.repos.d/CentOS-Base.repo     && yum install -y bzip2 ca-certificates curl gcc gcc-c++ git java-1.8.0-openjdk-devel make patch tar which xz gzip     && yum clean all     && rm -rf /var/cache/yum
+#5 CACHED
+
+#6 [3/5] RUN curl -fsSL "https://repo.continuum.io/archive/Anaconda3-2.4.1-Linux-x86_64.sh" -o /tmp/anaconda.sh     && bash /tmp/anaconda.sh -b -p /opt/anaconda3     && rm -f /tmp/anaconda.sh
+#6 CACHED
+
+#7 [4/5] RUN git init /testbed     && cd /testbed     && git fetch --no-tags "https://github.com/ninia/jep.git" "9eeb14c4c8b2d0e49feece90a6e330826b49c7dd"     && git checkout --detach "9eeb14c4c8b2d0e49feece90a6e330826b49c7dd"     && git config core.autocrlf false     && for ref in $(git for-each-ref --format='%(refname)' refs/heads refs/remotes refs/tags); do git update-ref -d "${ref}"; done     && git reflog expire --expire=now --all     && git gc --prune=now --aggressive     && test "$(git rev-parse HEAD)" = "9eeb14c4c8b2d0e49feece90a6e330826b49c7dd"     && test -z "$(git status --porcelain)"     && mkdir -p /benchmark /inputs /results
+#7 0.172 Initialized empty Git repository in /testbed/.git/
+#7 2.881 From https://github.com/ninia/jep
+#7 2.881  * branch            9eeb14c4c8b2d0e49feece90a6e330826b49c7dd -> FETCH_HEAD
+#7 2.914 Note: checking out '9eeb14c4c8b2d0e49feece90a6e330826b49c7dd'.
+#7 2.914 
+#7 2.914 You are in 'detached HEAD' state. You can look around, make experimental
+#7 2.914 changes and commit them, and you can discard any commits you make in this
+#7 2.914 state without impacting any branches by performing another checkout.
+#7 2.914 
+#7 2.914 If you want to create a new branch to retain commits you create, you may
+#7 2.914 do so (now or later) by using -b with the checkout command again. Example:
+#7 2.914 
+#7 2.914   git checkout -b new_branch_name
+#7 2.914 
+#7 2.914 HEAD is now at 9eeb14c... increment version to 3.6.3
+#7 DONE 4.2s
+
+#8 [5/5] WORKDIR /testbed
+#8 DONE 0.0s
+
+#9 exporting to image
+#9 exporting layers
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:3a132ba8dd293617015f72b1b179ad4890b5d10e4aee96d74c779e80e097d7af done
+#9 exporting config sha256:ec2325c59deb8c956d2788dac4b54661bd3cebe34fe58626f582c2c2f9aa3cbd done
+#9 exporting attestation manifest sha256:2819cd90c1496d1fce5e313bc0e75bd4854af375764992860084a58392b5e4c6 0.0s done
+#9 exporting manifest list sha256:acc01f758d28a94ab99d3e35eeaee06bd65f9a119daf4b2522e469c6994e3942 done
+#9 naming to docker.io/yutu0814/javac-case-093-jep:benchmark-v3 done
+#9 unpacking to docker.io/yutu0814/javac-case-093-jep:benchmark-v3 0.1s done
+#9 DONE 0.4s
+
+ [33m1 warning found (use docker --debug to expand):
+[0m - UndefinedVar: Usage of undefined variable '$LD_LIBRARY_PATH' (line 39)
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/k759ag76c8ik4v5o48t69rcnz

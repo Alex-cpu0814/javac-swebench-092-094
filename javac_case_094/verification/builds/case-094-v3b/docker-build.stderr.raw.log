@@ -1,0 +1,58 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.12kB 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d
+#2 DONE 0.1s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 54B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d
+#4 resolve docker.io/library/eclipse-temurin:8-jdk-jammy@sha256:d57e5d0e3e5dd4cabb74feccfdb36249a58c76a3354a33ee8737813df93b7e0d 0.0s done
+#4 DONE 0.0s
+
+#5 [2/6] RUN apt-get update     && apt-get install -y --no-install-recommends         ca-certificates         curl         file         g++         gcc         git         make         patch         tar         xz-utils         zlib1g-dev         libbz2-dev         libffi-dev         liblzma-dev         libncurses5-dev         libreadline-dev         libsqlite3-dev         libssl-dev         tk-dev         uuid-dev     && apt-get clean     && rm -rf /var/lib/apt/lists/*
+#5 CACHED
+
+#6 [3/6] RUN curl -fsSL "https://www.python.org/ftp/python/3.5.3/Python-3.5.3.tgz"         -o "/tmp/Python-3.5.3.tgz"     && echo "d8890b84d773cd7059e597dbefa510340de8336ec9b9e9032bf030f19291565a  /tmp/Python-3.5.3.tgz" | sha256sum -c -     && mkdir -p /tmp/python-src     && tar -xzf "/tmp/Python-3.5.3.tgz" -C /tmp/python-src --strip-components=1     && cd /tmp/python-src     && ./configure --prefix="/opt/python-3.5.3" --enable-shared     && make -j"$(nproc)"     && make install     && echo "/opt/python-3.5.3/lib" > "/etc/ld.so.conf.d/python-3.5.3.conf"     && ldconfig     && ln -sf "/opt/python-3.5.3/bin/python3.5" /usr/local/bin/python     && ln -sf "/opt/python-3.5.3/bin/python3.5" /usr/local/bin/python3     && rm -rf "/tmp/Python-3.5.3.tgz" /tmp/python-src
+#6 CACHED
+
+#7 [4/6] RUN if [[ -n "" ]]; then         apt-get update         && apt-get install -y --no-install-recommends          && apt-get clean         && rm -rf /var/lib/apt/lists/*;     fi
+#7 CACHED
+
+#8 [5/6] RUN git init /testbed     && cd /testbed     && git fetch --no-tags "https://github.com/ninia/jep.git" "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6"     && git checkout --detach "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6"     && git config core.autocrlf false     && for ref in $(git for-each-ref --format='%(refname)' refs/heads refs/remotes refs/tags); do git update-ref -d "${ref}"; done     && git reflog expire --expire=now --all     && git gc --prune=now     && test "$(git rev-parse HEAD)" = "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6"     && test -z "$(git status --porcelain)"     && mkdir -p /benchmark /inputs /results
+#8 0.213 hint: Using 'master' as the name for the initial branch. This default branch name
+#8 0.213 hint: is subject to change. To configure the initial branch name to use in all
+#8 0.213 hint: of your new repositories, which will suppress this warning, call:
+#8 0.213 hint: 
+#8 0.213 hint: 	git config --global init.defaultBranch <name>
+#8 0.213 hint: 
+#8 0.213 hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+#8 0.213 hint: 'development'. The just-created branch can be renamed via this command:
+#8 0.213 hint: 
+#8 0.213 hint: 	git branch -m <name>
+#8 0.214 Initialized empty Git repository in /testbed/.git/
+#8 2.030 From https://github.com/ninia/jep
+#8 2.030  * branch            bc2edaf0242736c2a2940104eebc6aed5a3ad9e6 -> FETCH_HEAD
+#8 2.061 HEAD is now at bc2edaf slightly better console.py
+#8 DONE 2.1s
+
+#9 [6/6] WORKDIR /testbed
+#9 DONE 0.0s
+
+#10 exporting to image
+#10 exporting layers
+#10 exporting layers 0.3s done
+#10 exporting manifest sha256:f6ca77387d459a692679ee682b1d6f00fa1a1a62d6777cb33f800734c78570e3 done
+#10 exporting config sha256:0ef4567a301836e6977a25fa87c8cd067051f32a51df556a00909b7e2c67b693 done
+#10 exporting attestation manifest sha256:a9a5dceb784ca19e7cf0d3f0ab96e8978392bea5d1a7a4192ab7eba1e9540c43 0.0s done
+#10 exporting manifest list sha256:afb82e4d2a5d2d58231b723073e32e41abfcdb48272923fbe8bb207908efd859 done
+#10 naming to docker.io/yutu0814/javac-case-094-jep:benchmark-v3 done
+#10 unpacking to docker.io/yutu0814/javac-case-094-jep:benchmark-v3 0.1s done
+#10 DONE 0.4s
+
+View build details: docker-desktop://dashboard/build/desktop-linux/desktop-linux/h46445w63xravcb6hj92b3480

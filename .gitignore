@@ -1,0 +1,5 @@
+# Superseded pre-v3 verification output is retained locally but is not part of
+# the reproducible case artifact.
+javac_case_093/verification/legacy/
+javac_case_094/verification/legacy/
+__pycache__/

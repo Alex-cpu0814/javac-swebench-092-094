@@ -1,0 +1,15 @@
+{
+  "instance_id": "ninia__jep-79",
+  "repo": "ninia/jep",
+  "base_commit": "9eeb14c4c8b2d0e49feece90a6e330826b49c7dd",
+  "fix_commit": "d14567567ac1281e978790b9170c981113de282f",
+  "base_image": "centos:7",
+  "glibc": "2.17",
+  "python": "Anaconda 2.4.1 / Python 3.5.1",
+  "java": "OpenJDK 8",
+  "compiler": "GCC 4.8.5",
+  "test_command": "python setup.py test",
+  "test_source": "dataset_construction_synthetic_test",
+  "base_failure": "allocator corruption diagnostic during TestVersionUnsafe",
+  "fix_result": "151 tests, OK (skipped=12)"
+}

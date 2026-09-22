@@ -1,15 +1,15 @@
-# Case 094 model-patch evaluator
+# Case 094 evaluator
 
-The evaluator image is prebuilt and published on Docker Hub:
+Case 094 uses the common case-092 v3 evaluator contract: a clean CentOS 7
+checkout at the Base commit, with the candidate patch and protected
+`patches/test_patch.diff` mounted only at runtime.
 
-yutu0814/javac-case-094-jep:model-evaluator
+```powershell
+docker pull yutu0814/javac-case-094-jep:benchmark-v3
+python evaluator/evaluate_model_patch.py --patch C:\path\to\model_patch.diff
+```
 
-From the repository root, run:
-
-python tools/evaluate_model_patch.py --case-dir javac_case_094 --image yutu0814/javac-case-094-jep:model-evaluator --patch ./my_model_patch.diff --pull
-
-The result is written to:
-
-javac_case_094/verification/evaluator/model_patch_summary.json
-
-The image contains the Base source, regression test, and evaluator. It does not contain the Fix archive or the gold patch.
+The image contains the 092-compatible Ubuntu/CPython 3.5.3 toolchain,
+OpenJDK 8, and no gold or test patch. Build/audit artifacts are
+stored in `verification/builds/`; evaluation artifacts are stored in
+`verification/runs/`.

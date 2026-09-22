@@ -7,7 +7,12 @@
     "model_evaluator_verified": true,
     "fix_passes": true,
     "base_fails": true,
-    "model_evaluator_verification_type": "known_correct_patch_smoke_test"
+    "model_evaluator_verification_type": "isolated_runtime_injection_with_positive_and_negative_controls",
+    "evaluation_assets_injected_at_runtime": true,
+    "image_contains_test_patch": false,
+    "image_contains_gold_patch": false,
+    "image_contains_fix_commit": false,
+    "template_version": "1.0"
   },
   "created_at_source": "GitHub API for ninia/jep issue #40",
   "PASS_TO_PASS_COUNT": 95,
@@ -131,12 +136,12 @@
     "test_call.TestTypes.test_string_string_array"
   ],
   "standard_layout": {
-    "schema_version": "1.0",
+    "schema_version": "2.0",
     "case_directory": "javac_case_094",
-    "source_archives": "source/",
+    "analysis": "analysis/",
     "patches": "patches/",
+    "official_swebench": "official_swebench/",
     "evaluator": "evaluator/",
-    "docker": "docker/",
     "verification": "verification/"
   },
   "test_source": "dataset_construction_test_derived_from_later_upstream_issue_test",
@@ -157,7 +162,7 @@
     "note": "The legacy setup.py test command returns exit code 0 even when the Java unittest reports a failure; base_failure_detected is therefore the authoritative Base result.",
     "base_passed": 95,
     "fix_command_exit_code": 0,
-    "image": "javac-case-094-jep:py353-jdk8",
+    "image": "yutu0814/javac-case-094-jep:benchmark-v3",
     "container_engine": "Docker Desktop Linux containers",
     "base_failure_detected": true,
     "base_command_exit_code": 0,
@@ -188,5 +193,9 @@
     "tests/__init__.py",
     "tests/test_none_dictionary.py"
   ],
-  "project_version": "3.5.0"
+  "project_version": "3.5.0",
+  "model_evaluator_image": "yutu0814/javac-case-094-jep:benchmark-v3",
+  "model_evaluator_image_digest": "sha256:afb82e4d2a5d2d58231b723073e32e41abfcdb48272923fbe8bb207908efd859",
+  "model_evaluator_build_id": "case-094-v3b",
+  "model_evaluator_run_id": "case-094-v3-gold5"
 }

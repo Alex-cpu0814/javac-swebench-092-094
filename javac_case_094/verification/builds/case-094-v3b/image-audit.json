@@ -1,0 +1,12 @@
+{
+  "schema_version": "3.0",
+  "instance_id": "ninia__jep-40",
+  "base_commit": "bc2edaf0242736c2a2940104eebc6aed5a3ad9e6",
+  "working_tree_clean": true,
+  "fix_commit_present": false,
+  "model_patch_present": false,
+  "test_patch_present": false,
+  "gold_patch_present": false,
+  "evaluation_assets_injected_at_runtime": true,
+  "network_disabled_during_audit": true
+}

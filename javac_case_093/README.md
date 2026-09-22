@@ -1,31 +1,14 @@
 # Java-C to SWE-bench Case 093
 
-This directory follows the common Java-C to SWE-bench-compatible case layout.
+Case 093 (`ninia__jep-79`) follows the common case-092 v3 layout.
 
-## Identity
+- `analysis/`: environment and provenance notes.
+- `patches/`: upstream fix and protected regression-test patch.
+- `official_swebench/`: public task plus private instance metadata.
+- `evaluator/`: config-driven runtime-injection evaluator and clean-image Dockerfile.
+- `verification/`: immutable build and evaluation evidence.
 
-- Instance ID: `ninia__jep-79`
-- Case number: `093`
-- Repository, issue, commits, and project version: `official_swebench/metadata.json`
-
-## Directory contract
-
-- `analysis/`: source-row mapping, provenance, and case analysis.
-- `source/`: Base and Fix source archives, stored once.
-- `patches/`: upstream gold patch and the exact regression-test patch.
-- `official_swebench/`: private/public records and metadata.
-- Docker Hub image: `yutu0814/javac-case-093-jep:historical-centos7-official-style` (prebuilt; see the repository README).
-- `evaluator/`: model-patch evaluator without the Fix archive or gold patch.
-- `verification/`: Docker and evaluator logs/results.
-
-## Verification
-
-The expected relationship is:
-
-```text
-Base fails the regression test
-Fix passes the regression test and the runnable suite
-```
-
-The evaluator smoke test uses `evaluator/model_patch.example.diff`, which is
-a known-correct patch for pipeline validation, not a model-generated result.
+The published image is `yutu0814/javac-case-093-jep:benchmark-v3`. It uses the
+verified CentOS 7 allocator environment because this case's Base regression is
+allocator corruption; the Base emits an allocator diagnostic and the Fix passes
+the 151-test project suite.
