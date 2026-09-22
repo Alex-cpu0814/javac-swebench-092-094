@@ -188,7 +188,7 @@
     "note": "The legacy setup.py test command returns exit code 0 even when the Java unittest reports a failure; base_failure_detected is therefore the authoritative Base result.",
     "base_skipped": 20,
     "fix_command_exit_code": 0,
-    "image": "yutu0814/javac-case-093-jep:swebench-ubuntu-asan",
+    "image": "yutu0814/javac-case-093-jep:historical-centos7-official-style",
     "container_engine": "Docker Desktop Linux containers",
     "base_failure_detected": true,
     "fix_success_detected": true,

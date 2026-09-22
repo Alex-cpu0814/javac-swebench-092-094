@@ -14,8 +14,9 @@ tar -xzf "${ROOT}/jep_fix_d145675.tar.gz" -C "${FIX_DIR}"
 
 {
     echo "== Environment =="
-    cat /etc/os-release
+    cat /etc/centos-release
     python --version 2>&1
+    python -c "import ctypes; f=ctypes.pythonapi.Py_GetVersion; f.restype=ctypes.c_char_p; print(repr(f())); print('Py_GetVersion_length=' + str(len(f())))"
     javac -version 2>&1
     java -version 2>&1
     gcc --version 2>&1
@@ -45,14 +46,18 @@ run_revision "fix" "${FIX_DIR}"
 base_status="$(cat "${LOG_DIR}/base.exit")"
 fix_status="$(cat "${LOG_DIR}/fix.exit")"
 base_failure=false
-asan_failure_detected=false
+author_exact_diagnostic=false
+allocator_corruption_equivalent=false
 fix_success=false
 
-if grep -q "AddressSanitizer" "${LOG_DIR}/base.log" \
-    && grep -q "heap-buffer-overflow" "${LOG_DIR}/base.log" \
-    && grep -q "pyembed_version_unsafe" "${LOG_DIR}/base.log"; then
+if grep -q "pyembed_startup" "${LOG_DIR}/base.log" \
+    && grep -Eq 'free\(\): invalid next size|corrupted size vs\. prev_size|sysmalloc: Assertion' "${LOG_DIR}/base.log"; then
     base_failure=true
-    asan_failure_detected=true
+    if grep -q "free(): invalid next size" "${LOG_DIR}/base.log"; then
+        author_exact_diagnostic=true
+    else
+        allocator_corruption_equivalent=true
+    fi
 fi
 
 if [[ "${fix_status}" -eq 0 ]] \
@@ -64,13 +69,15 @@ fi
 cat > "${LOG_DIR}/summary.json" <<EOF
 {
   "instance_id": "ninia__jep-79",
-  "mode": "swebench_ubuntu_asan_project_native_test_style",
-  "base_image": "eclipse-temurin:8-jdk-jammy",
-  "python_distribution": "Python-${PYTHON_VERSION:-3.5.3}",
+  "mode": "historical_centos7_project_native_test_style",
+  "base_image": "centos:7",
+  "glibc": "2.17",
+  "python_distribution": "Anaconda3-2.4.1",
   "base_command_exit_code": ${base_status},
   "fix_command_exit_code": ${fix_status},
   "base_failure_detected": ${base_failure},
-  "asan_failure_detected": ${asan_failure_detected},
+  "author_exact_diagnostic": ${author_exact_diagnostic},
+  "allocator_corruption_equivalent": ${allocator_corruption_equivalent},
   "fix_success_detected": ${fix_success},
   "test_framework": "python setup.py test -> jep.Run -> unittest discover",
   "test_command": "python setup.py test"
@@ -80,7 +87,7 @@ EOF
 cat "${LOG_DIR}/summary.json"
 
 if [[ "${base_failure}" != "true" ]]; then
-    echo "Base did not show the expected ASan regression." >&2
+    echo "Base did not show the expected allocator corruption." >&2
     exit 1
 fi
 
