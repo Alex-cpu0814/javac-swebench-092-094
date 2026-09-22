@@ -1,0 +1,175 @@
+test_initialization (test_array.TestArray) ... ok
+test_int_setitem_wrong_type_throws_exception (test_array.TestArray) ... ok
+test_iter (test_array.TestArray) ... ok
+test_read_file (test_array.TestArray) ... ok
+test_set_string_array (test_array.TestArray) ... ok
+test_setitem (test_array.TestArray) ... ok
+test_setitem_out_of_bounds_throws_exception (test_array.TestArray) ... ok
+test_slice (test_array.TestArray) ... ok
+test_slice_out_of_bounds_handled_cleanly (test_array.TestArray) ... ok
+test_slice_with_step_not_1_throws_exception (test_array.TestArray) ... ok
+test_string_index_conversion (test_array.TestArray) ... ok
+test_20args (test_call.TestTypes) ... ok
+test_bool_array (test_call.TestTypes) ... ok
+test_deepList (test_call.TestTypes) ... ok
+test_enum (test_call.TestTypes) ... ok
+test_equals (test_call.TestTypes) ... ok
+test_float_array (test_call.TestTypes) ... ok
+test_getstring_array (test_call.TestTypes) ... ok
+test_int_array (test_call.TestTypes) ... ok
+test_object_array (test_call.TestTypes) ... ok
+test_overload (test_call.TestTypes) ... ok
+test_short_array (test_call.TestTypes) ... ok
+test_string_string_array (test_call.TestTypes) ... ok
+test_date_compare (test_compare.TestCompare) ... ok
+test_equals (test_compare.TestCompare) ... ok
+test_int_compare (test_compare.TestCompare) ... ok
+test_dir_arraylist (test_dir.TestDir) ... ok
+test_dir_package (test_dir.TestDir) ... ok
+test_dir_subpackage (test_dir.TestDir) ... ok
+test_arithmetic_error (test_exceptions.TestExceptions) ... ok
+test_import_error (test_exceptions.TestExceptions) ... ok
+test_index_error (test_exceptions.TestExceptions) ... ok
+test_io_error (test_exceptions.TestExceptions) ... ok
+test_io_exception (test_exceptions.TestExceptions) ... ok
+test_null_pointer_exception (test_exceptions.TestExceptions) ... ok
+test_number_format (test_exceptions.TestExceptions) ... ok
+test_type_error (test_exceptions.TestExceptions) ... ok
+test_value_err (test_exceptions.TestExceptions) ... ok
+test_get_bytearray (test_getvalue.TestGetValue) ... ok
+test_get_collection_boxing (test_getvalue.TestGetValue) ... ok
+test_class_import (test_import.TestImport) ... ok
+test_conflicting_package (test_import.TestImport) ... ok
+test_java_sql (test_import.TestImport) ... ok
+test_not_found (test_import.TestImport) ... ok
+test_restricted_classloader (test_import.TestImport) ... ok
+test_without_restricted_classloader (test_import.TestImport) ... ok
+test_iter_itr_crash (test_iterators.TestIterators) ... ok
+test_iteration (test_iterators.TestIterators) ... ok
+test_batch (test_jdbc.TestJdbc) ... ok
+test_datetime (test_jdbc.TestJdbc) ... ok
+test_dbapi_primitives (test_jdbc.TestJdbc) ... ok
+test_java_sql (test_jdbc.TestJdbc) ... ok
+test_add (test_lists.TestLists) ... ok
+test_addequals (test_lists.TestLists) ... ok
+test_contains (test_lists.TestLists) ... ok
+test_del (test_lists.TestLists) ... ok
+test_getitem (test_lists.TestLists) ... ok
+test_getslice (test_lists.TestLists) ... ok
+test_getstringbyindex (test_lists.TestLists) ... ok
+test_getstringbyiterator (test_lists.TestLists) ... ok
+test_len (test_lists.TestLists) ... ok
+test_loop (test_lists.TestLists) ... ok
+test_multiply (test_lists.TestLists) ... ok
+test_multiplyequals (test_lists.TestLists) ... ok
+test_sequence (test_lists.TestLists) ... ok
+test_setitem (test_lists.TestLists) ... ok
+test_setslice (test_lists.TestLists) ... ok
+test_del (test_maps.TestMaps) ... ok
+test_getitem (test_maps.TestMaps) ... ok
+test_iter (test_maps.TestMaps) ... ok
+test_len (test_maps.TestMaps) ... ok
+test_absolute (test_numbers.TestNumbers) ... ok
+test_add (test_numbers.TestNumbers) ... ok
+test_compare (test_numbers.TestNumbers) ... ok
+test_divide (test_numbers.TestNumbers) ... ok
+test_divmod (test_numbers.TestNumbers) ... ok
+test_index (test_numbers.TestNumbers) ... ok
+test_multiply (test_numbers.TestNumbers) ... ok
+test_negative (test_numbers.TestNumbers) ... ok
+test_nonzero (test_numbers.TestNumbers) ... ok
+test_positive (test_numbers.TestNumbers) ... ok
+test_pow (test_numbers.TestNumbers) ... ok
+test_remainder (test_numbers.TestNumbers) ... ok
+test_subtract (test_numbers.TestNumbers) ... ok
+testArgReturn (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+testArrayParams (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+testCharArrayCreation (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+testIncompatibleConversion (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+testMultiDimensional (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+testSetGet (test_numpy.TestNumpy) ... skipped 'Jep library built without numpy support'
+test_del_throws_exception (test_object.TestObject) ... ok
+test_hash (test_object.TestObject) ... ok
+test_str (test_object.TestObject) ... ok
+test_inits (test_preinits.TestPreInits) ... ok
+test_array_access (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_array_assignment (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_array_creation (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_class_import (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_construction (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_dir_class (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_field_access (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_list_setslice (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_method_binding (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_method_call (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_number_compare (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_package_import (test_python_memory.TestPythonRefCounts) ... skipped 'Python must be compiled --with-pydebug.'
+test_byte_value (test_regressions.TestRegressions) ... ok
+test_out (test_regressions.TestRegressions) ... ok
+test_compiledScript (test_run_script.TestRunScript) ... FAIL
+test_numpy_array_to_string (test_shared_modules.TestSharedModules) ... skipped 'Jep library built without numpy support'
+test_numpy_prod_succeeds (test_shared_modules.TestSharedModules) ... skipped 'Jep library built without numpy support'
+test_shared_modules (test_shared_modules.TestSharedModules) ... ok
+test_boolean (test_types.TestTypes) ... ok
+test_byte (test_types.TestTypes) ... ok
+test_byte_coercion (test_types.TestTypes) ... ok
+test_byte_overflow (test_types.TestTypes) ... ok
+test_char (test_types.TestTypes) ... ok
+test_char_coercion (test_types.TestTypes) ... ok
+test_class (test_types.TestTypes) ... ok
+test_class_coercion (test_types.TestTypes) ... ok
+test_double (test_types.TestTypes) ... ok
+test_double_coercion (test_types.TestTypes) ... ok
+test_double_nan (test_types.TestTypes) ... ok
+test_float (test_types.TestTypes) ... ok
+test_float_coercion (test_types.TestTypes) ... ok
+test_float_nan (test_types.TestTypes) ... ok
+test_int (test_types.TestTypes) ... ok
+test_int_coersion (test_types.TestTypes) ... ok
+test_int_overflow (test_types.TestTypes) ... ok
+test_long (test_types.TestTypes) ... ok
+test_long_coersion (test_types.TestTypes) ... ok
+test_long_overflow (test_types.TestTypes) ... ok
+test_object_boolean_coercion (test_types.TestTypes) ... ok
+test_object_byte_boolean_coercion (test_types.TestTypes) ... ok
+test_object_double_int_coercion (test_types.TestTypes) ... ok
+test_object_float_int_coercion (test_types.TestTypes) ... ok
+test_object_int_boolean_coersion (test_types.TestTypes) ... ok
+test_object_long_boolean_coersion (test_types.TestTypes) ... ok
+test_object_short_boolean_coercion (test_types.TestTypes) ... ok
+test_primitive_boolean_coercion (test_types.TestTypes) ... ok
+test_primitive_byte_boolean_coercion (test_types.TestTypes) ... ok
+test_primitive_double_int_coercion (test_types.TestTypes) ... ok
+test_primitive_float_int_coercion (test_types.TestTypes) ... ok
+test_primitive_int_boolean_coersion (test_types.TestTypes) ... ok
+test_primitive_long_boolean_coersion (test_types.TestTypes) ... ok
+test_primitive_short_boolean_coercion (test_types.TestTypes) ... ok
+test_short (test_types.TestTypes) ... ok
+test_short_coercion (test_types.TestTypes) ... ok
+test_short_overflow (test_types.TestTypes) ... ok
+test_string (test_types.TestTypes) ... ok
+test_string_coercion (test_types.TestTypes) ... ok
+
+======================================================================
+FAIL: test_compiledScript (test_run_script.TestRunScript)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/testbed/tests/test_run_script.py", line 18, in test_compiledScript
+    jep_pipe(build_java_process_cmd('jep.test.TestCompiledScript'))
+  File "/opt/python-3.5.3/lib/python3.5/contextlib.py", line 136, in helper
+    return _GeneratorContextManager(func, args, kwds)
+  File "/opt/python-3.5.3/lib/python3.5/contextlib.py", line 38, in __init__
+    self.gen = func(*args, **kwds)
+  File "./tests/jep_pipe.py", line 36, in jep_pipe
+    assert False, stderr
+AssertionError: b'Exception in thread "main" jep.JepException: <class \'RuntimeError\'>: Bad code object in .pyc file\n\tat jep.Jep.run(Native Method)\n\tat jep.Jep.runScript(Jep.java:472)\n\tat jep.Jep.runScript(Jep.java:448)\n\tat jep.test.TestCompiledScript.main(TestCompiledScript.java:26)\n'
+
+----------------------------------------------------------------------
+Ran 151 tests in 1.055s
+
+FAILED (failures=1, skipped=20)
+Exception ignored in: <module 'threading' from '/opt/python-3.5.3/lib/python3.5/threading.py'>
+Traceback (most recent call last):
+  File "/opt/python-3.5.3/lib/python3.5/threading.py", line 1283, in _shutdown
+    assert tlock.locked()
+SystemError: <built-in method locked of _thread.lock object at 0x797fe07c1738> returned a result with an error set

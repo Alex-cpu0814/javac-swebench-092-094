@@ -1,0 +1,62 @@
+{
+  "run_id": "case-092-final-py35-gold",
+  "started_at": "2026-09-22T06:34:59.285Z",
+  "container_exit_code": 0,
+  "application_order": [
+    "model_patch",
+    "test_patch",
+    "tests"
+  ],
+  "grading": {
+    "FAIL_TO_PASS": {
+      "passed": 1,
+      "expected": 1,
+      "failed": 0,
+      "missing": 0,
+      "skipped": 0
+    },
+    "unexpected_failures": 0,
+    "tests_observed": 151,
+    "PASS_TO_PASS": {
+      "passed": 121,
+      "expected": 121,
+      "failed": 0,
+      "missing": 0,
+      "skipped": 0
+    }
+  },
+  "duration_ms": 7156,
+  "phase": {
+    "test_exit_code": 0,
+    "instance_id": "ninia__jep-77",
+    "phase": "tests_complete",
+    "outcome": "completed",
+    "reason": "tests_completed"
+  },
+  "status": "resolved",
+  "model_patch_sha256": "4b6c66f98f07d1197fe43df39a8a9495097bb6bb68d1b9fa511381b975409dac",
+  "label": "py35-gold",
+  "reason": "all_expected_tests_passed",
+  "kind": "patch_evaluation",
+  "schema_version": "3.0",
+  "logs": {
+    "events": "events.jsonl",
+    "model_patch": "model-patch.raw.log",
+    "tests": "tests.raw.log",
+    "grading": "grading.json",
+    "project_build": "project-build.raw.log",
+    "docker_stderr": "docker-run.stderr.raw.log",
+    "docker_stdout": "docker-run.stdout.raw.log",
+    "test_patch": "test-patch.raw.log"
+  },
+  "image": {
+    "repo_digests": [
+      "javac-case-092-jep@sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4"
+    ],
+    "id": "sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4",
+    "name": "javac-case-092-jep:benchmark-v3"
+  },
+  "finished_at": "2026-09-22T06:35:06.440Z",
+  "instance_id": "ninia__jep-77",
+  "test_patch_sha256": "916303011f0c64f9e095355bb6fbe67ae4da10c1ee515ac12d79e647d9752e03"
+}

@@ -11,12 +11,10 @@ This directory follows the common Java-C to SWE-bench-compatible case layout.
 ## Directory contract
 
 - `analysis/`: source-row mapping, provenance, and case analysis.
-- `source/`: Base and Fix source archives, stored once.
-- `patches/`: upstream gold patch and the exact regression-test patch.
-- `official_swebench/`: private/public records and metadata.
-- Docker Hub image: `yutu0814/javac-case-092-jep:repro` (prebuilt; see the repository README).
-- `evaluator/`: model-patch evaluator without the Fix archive or gold patch.
-- `verification/`: Docker and evaluator logs/results.
+- `patches/`: upstream gold patch and exact regression-test patch.
+- `official_swebench/`: private/public records, metadata, and checksums.
+- `evaluator/`: config-driven evaluator, case adapter, and one Dockerfile.
+- `verification/`: final immutable build, runs, and control patches.
 
 ## Verification
 
@@ -27,5 +25,22 @@ Base fails the regression test
 Fix passes the regression test and the runnable suite
 ```
 
-The evaluator smoke test uses `evaluator/model_patch.example.diff`, which is
-a known-correct patch for pipeline validation, not a model-generated result.
+The evaluator uses one image built from `evaluator/image/Dockerfile`. During
+image construction it clones the upstream repository, checks out the Base
+commit, removes upstream refs and unreachable objects, and audits that the Fix
+commit is absent. `evaluator/case_config.json` contains case identity and
+environment parameters; `evaluator/case_adapter.sh` contains only the JEP build
+and test commands.
+
+Candidate and protected test patches are mounted only after a fresh container
+starts and are applied in that order. Structured log schema 3.0 separates image
+builds under `verification/builds/` from patch runs under
+`verification/runs/`; see `evaluator/LOGGING.md`.
+
+The verified evaluator image is published on Docker Hub as
+`yutu0814/javac-case-092-jep:benchmark-v3` (digest
+`sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4`).
+
+Legacy Base/Fix archives, the old oracle Docker context, duplicate answer
+patch, and v1/v2 logs were removed from the final case directory after the v3
+controls passed.

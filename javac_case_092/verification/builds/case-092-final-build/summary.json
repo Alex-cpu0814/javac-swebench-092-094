@@ -1,0 +1,29 @@
+{
+  "schema_version": "3.0",
+  "kind": "image_build",
+  "build_id": "case-092-final-build",
+  "status": "success",
+  "reason": "image_built_and_audited",
+  "started_at": "2026-09-22T06:30:49.942Z",
+  "finished_at": "2026-09-22T06:34:26.078Z",
+  "duration_ms": 216139,
+  "source": {
+    "repo": "https://github.com/ninia/jep.git",
+    "base_commit": "d14567567ac1281e978790b9170c981113de282f"
+  },
+  "image": {
+    "name": "javac-case-092-jep:benchmark-v3",
+    "id": "sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4",
+    "repo_digests": [
+      "javac-case-092-jep@sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4"
+    ]
+  },
+  "logs": {
+    "events": "events.jsonl",
+    "docker_build_stdout": "docker-build.stdout.raw.log",
+    "docker_build_stderr": "docker-build.stderr.raw.log",
+    "image_audit_stdout": "image-audit.stdout.raw.log",
+    "image_audit_stderr": "image-audit.stderr.raw.log",
+    "image_audit": "image-audit.json"
+  }
+}

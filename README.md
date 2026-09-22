@@ -1,144 +1,104 @@
-# Java-C SWE-bench Compatible Cases
+# Java-C SWE-bench-compatible cases
 
-This repository contains three Java-C cross-language bug cases converted into a SWE-bench-compatible format.
+This repository contains three `ninia/jep` cross-language bug cases converted
+to a SWE-bench-compatible record format.
 
-The cases are from the `ninia/jep` project:
+| Case | Instance ID | Issue | FAIL_TO_PASS | PASS_TO_PASS | Evaluator generation |
+|---|---|---:|---:|---:|---|
+| 092 | `ninia__jep-77` | 77 | 1 | 121 | v3 single-image, runtime injection |
+| 093 | `ninia__jep-79` | 79 | 1 | 130 | legacy release |
+| 094 | `ninia__jep-40` | 40 | 1 | 95 | legacy release |
 
-| Case | Instance ID | Issue | FAIL_TO_PASS | PASS_TO_PASS |
-|---|---|---:|---:|---:|
-| 092 | `ninia__jep-77` | 77 | 1 | 121 |
-| 093 | `ninia__jep-79` | 79 | 1 | 130 |
-| 094 | `ninia__jep-40` | 40 | 1 | 95 |
+## Case 092
 
-Each case contains the source snapshots, patches, official-field-compatible records, references to prebuilt Docker Hub images, the model-patch evaluator, and verification logs.
-
-## Repository Layout
-
-```text
-javac_case_092/
-javac_case_093/
-javac_case_094/
-```
-
-Each case uses the same structure:
+Case 092 is the current reference implementation. Its evaluator follows the
+SWE-bench isolation pattern without requiring the official harness:
 
 ```text
-analysis/          Source-row mapping, bug analysis, and provenance
-source/            Base and Fix source archives
-patches/           gold_patch.diff and test_patch.diff
-official_swebench/ SWE-bench-compatible JSON/JSONL records and metadata
-evaluator/         Model-patch evaluator and example patch
-verification/      Docker and evaluator logs and summaries
+clean Base image
+  -> inject model patch at container runtime
+  -> inject protected test patch at container runtime
+  -> build
+  -> run tests
+  -> grade FAIL_TO_PASS and PASS_TO_PASS
 ```
 
-`gold_patch.diff` is the upstream project fix. `test_patch.diff` is the regression-test patch. Case 092 uses an upstream regression test; cases 093 and 094 use tests created during dataset construction, with their provenance recorded in `official_swebench/metadata.json`.
+The one Base image contains the historical toolchain and a pruned checkout at
+the exact Base commit. It does not contain the model patch, protected test
+patch, gold patch, Fix source, expected outcomes, or evaluation entrypoint.
 
-`evaluator/model_patch.example.diff` is a copy of the known-correct gold patch used to smoke-test the evaluator. It is not a model-generated patch and must not be used as a model repair-rate result.
-
-## Docker Hub Images
-
-Each case has two images on Docker Hub under the `yutu0814` account:
+Verified Docker Hub image:
 
 ```text
-yutu0814/javac-case-092-jep:repro
-yutu0814/javac-case-092-jep:model-evaluator
-
-yutu0814/javac-case-093-jep:repro
-yutu0814/javac-case-093-jep:model-evaluator
-
-yutu0814/javac-case-094-jep:repro
-yutu0814/javac-case-094-jep:model-evaluator
+yutu0814/javac-case-092-jep:benchmark-v3
+sha256:da9c9293093a89f2cfd0e2d584077080c640f0c002cef0589c64e28ac6b550d4
 ```
 
-The `repro` image runs the Base and Fix comparison. The `model-evaluator` image contains the Base source, regression test, and evaluator; it does not contain the Fix archive or the gold patch. The images are prebuilt and published on Docker Hub, so Dockerfiles and image build scripts are omitted from this public release.
+### Evaluate a candidate patch
 
-Docker Desktop must be running with Linux containers enabled.
-
-## Release Scope
-
-This public repository distributes the dataset records and usage entry points. Docker images are prebuilt and published on Docker Hub. Dockerfiles, container entrypoint scripts, and image build scripts are intentionally omitted from this release.
-
-The original construction materials remain outside this public release. Users can pull the prebuilt images directly from Docker Hub.
-
-## Reproduce a Case
-
-For example, run case 092:
+Requirements: Git, Docker with Linux containers, and Python 3.5 or newer.
 
 ```powershell
-docker pull yutu0814/javac-case-092-jep:repro
-docker run --rm yutu0814/javac-case-092-jep:repro
+git clone https://github.com/Alex-cpu0814/javac-swebench-092-094.git
+Set-Location .\javac-swebench-092-094\javac_case_092
+
+docker pull yutu0814/javac-case-092-jep:benchmark-v3
+
+python .\evaluator\evaluate_model_patch.py `
+  --patch C:\path\to\my_model_patch.diff
 ```
 
-The expected result is that the Base revision fails the regression test and the Fix revision passes the runnable test suite.
+The default image is read from `evaluator/case_config.json`. Results are stored
+under `verification/runs/<run-id>/`:
 
-## Cross-platform Python Evaluator
+- `summary.json`: final `resolved`, `unresolved`, or `error` result.
+- `grading.json`: per-test F2P/P2P results.
+- `events.jsonl`: structured schema-3.0 event log.
+- `*.raw.log`: unmodified patch, build, test, and Docker output.
 
-The recommended entry point is the Python wrapper below. It works on Windows,
-Linux, and macOS and uses the evaluator image from Docker Hub.
+Exit code `0` means resolved, `1` means the candidate is unresolved, and `2`
+means evaluator/infrastructure error.
 
-The host only needs Python 3.5 or newer and Docker. The historical project
-environment remains inside the Docker image.
+The included `patches/gold_patch.diff` is an upstream maintainer control, not
+a model-generated answer. Do not use it when measuring model repair ability.
 
-```text
-python tools/evaluate_model_patch.py --case-dir javac_case_092 --image yutu0814/javac-case-092-jep:model-evaluator --patch ./my_model_patch.diff --pull
-```
-
-Replace `092` in the case directory and image name for cases 093 and 094.
-The result is written to:
-
-```text
-javac_case_092/verification/evaluator/model_patch_summary.json
-```
-
-The command exits with status `0` for `resolved`, `1` when the patch does not
-pass, and `2` when Docker or the result file cannot be used.
-
-## Windows PowerShell Evaluator
-
-The original PowerShell wrapper remains available for Windows users:
-
-From a cloned repository, run the evaluator script for the selected case. For case 092:
+### Build the image locally (maintainers)
 
 ```powershell
 Set-Location .\javac_case_092
-
-docker pull yutu0814/javac-case-092-jep:model-evaluator
-
-& .\evaluator\evaluate_model_patch.ps1 `
-  -ImageName 'yutu0814/javac-case-092-jep:model-evaluator' `
-  -PatchPath .\my_model_patch.diff
+.\evaluator\build_model_evaluator.ps1
 ```
 
-Replace `092` and the image name for cases 093 and 094. The result is written to:
+The Docker build clones the upstream repository and checks out the Base commit,
+so local image construction requires network access. Normal users only need the
+published image.
+
+## Cases 093 and 094
+
+Cases 093 and 094 retain the earlier two-image/public-release structure for
+now. Their Docker Hub tags and usage instructions remain inside each case
+directory. They have not yet been migrated to the case-092 v3 template.
+
+## Records and provenance
+
+Each case includes SWE-bench-compatible records under `official_swebench/`:
 
 ```text
-verification/evaluator/model_patch_summary.json
-```
-
-The evaluator reports `resolved` only when the regression test and the runnable suite pass.
-
-## Official Records
-
-The complete records are stored under each case's `official_swebench/` directory:
-
-```text
-instance_092.json
-instance_092.jsonl
-public_task_092.json
+instance_NNN.json
+instance_NNN.jsonl
+public_task_NNN.json
 metadata.json
 ```
 
-The `public_task_*.json` file contains the task information exposed to a model. The complete `instance_*.json` record also contains the gold patch, test patch, and test outcome fields.
+`public_task_*.json` is the model-facing task. The complete instance and the
+private evaluator materials include oracle information and should not be shown
+to a model during an unbiased evaluation. Patch provenance and verification
+details are recorded in each case's `metadata.json`.
 
-## Verification Status
-
-All three cases have been verified with Docker and the model-patch evaluator smoke test. The smoke test uses the known-correct gold patch copy described above. Actual model repair rates require collecting patches generated by each model and evaluating them independently.
-
-## Repositories
+## Links
 
 - GitHub: [Alex-cpu0814/javac-swebench-092-094](https://github.com/Alex-cpu0814/javac-swebench-092-094)
 - Docker Hub: [yutu0814](https://hub.docker.com/u/yutu0814)
 
-## License and Citation
-
-The original source project and its patches remain subject to their upstream license. Check the upstream `ninia/jep` repository and the license files included in each source archive before redistribution.
+The original source and patches remain subject to the upstream `ninia/jep`
+license.

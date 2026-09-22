@@ -1,0 +1,8 @@
+diff --git a/tests/test_run_script.py b/tests/test_run_script.py
+new file mode 100644
+index 0000000..32c5e2d
+--- /dev/null
++++ b/tests/test_run_script.py
+@@ -0,0 +1,2 @@
++# Negative control: a candidate must not preempt the protected regression test.
++pass

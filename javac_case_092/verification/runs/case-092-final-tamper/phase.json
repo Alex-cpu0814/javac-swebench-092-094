@@ -1,0 +1,6 @@
+{
+  "phase": "test_patch",
+  "outcome": "unresolved",
+  "reason": "candidate_conflicts_with_test_patch",
+  "test_exit_code": null
+}
