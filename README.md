@@ -86,13 +86,27 @@ Published images:
 
 ```text
 yutu0814/javac-case-093-jep:benchmark-v3
+sha256:acc01f758d28a94ab99d3e35eeaee06bd65f9a119daf4b2522e469c6994e3942
+
 yutu0814/javac-case-094-jep:benchmark-v3
+sha256:afb82e4d2a5d2d58231b723073e32e41abfcdb48272923fbe8bb207908efd859
 ```
 
-Run either evaluator from its case directory with
-`python evaluator/evaluate_model_patch.py --patch <candidate.diff>`. Build and
-run evidence follows the same `verification/builds/` and
-`verification/runs/` layout as case 092.
+Evaluate a candidate patch from either case directory:
+
+```powershell
+Set-Location .\javac_case_093
+python .\evaluator\evaluate_model_patch.py `
+  --patch C:\path\to\my_model_patch.diff
+
+Set-Location ..\javac_case_094
+python .\evaluator\evaluate_model_patch.py `
+  --patch C:\path\to\my_model_patch.diff
+```
+
+Build and run evidence follows the same `verification/builds/` and
+`verification/runs/` layout as case 092. The final gold controls resolve with
+F2P/P2P `1/130` for 093 and `1/95` for 094.
 
 ## Records and provenance
 
