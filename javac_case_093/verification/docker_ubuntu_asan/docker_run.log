@@ -1,0 +1,467 @@
+== Environment ==
+PRETTY_NAME="Ubuntu 22.04.5 LTS"
+NAME="Ubuntu"
+VERSION_ID="22.04"
+VERSION="22.04.5 LTS (Jammy Jellyfish)"
+VERSION_CODENAME=jammy
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=jammy
+Python 3.5.3
+javac 1.8.0_502
+openjdk version "1.8.0_502"
+OpenJDK Runtime Environment (Temurin)(build 1.8.0_502-b07)
+OpenJDK 64-Bit Server VM (Temurin)(build 25.502-b07, mixed mode)
+gcc (Ubuntu 11.4.0-1ubuntu1~22.04.3) 11.4.0
+Copyright (C) 2021 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+ldd (Ubuntu GLIBC 2.35-0ubuntu3.14) 2.35
+Copyright (C) 2022 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+Written by Roland McGrath and Ulrich Drepper.
+== base: project-native setup.py test ==
+numpy not found, running without numpy support
+running test
+running build
+running setup_java
+running build_java
+/opt/java/openjdk/bin/javac -deprecation -d build/java -classpath src src/jep/ClassEnquirer.java src/jep/Run.java src/jep/NDArray.java src/jep/ClassList.java src/jep/Util.java src/jep/NamingConventionClassEnquirer.java src/jep/Proxy.java src/jep/JepScriptEngineFactory.java src/jep/PyConfig.java src/jep/Jep.java src/jep/JepScriptEngine.java src/jep/InvocationHandler.java src/jep/JepConfig.java src/jep/JepException.java src/jep/python/PyObject.java src/jep/python/PyClass.java src/jep/python/PyModule.java
+/opt/java/openjdk/bin/javac -deprecation -d build/java/test -classpath build/java:src src/jep/test/TestGetByteArray.java src/jep/test/Test.java src/jep/test/TestPreInitVariables.java src/jep/test/TestSharedModules.java src/jep/test/TestGetCollectionBoxing.java src/jep/test/TestVersionUnsafe.java src/jep/test/types/TestMethodTypes.java src/jep/test/types/TestStaticMethodTypes.java src/jep/test/types/TestFieldTypes.java src/jep/test/types/TestStaticFieldTypes.java src/jep/test/numpy/TestScipyFreeze.java src/jep/test/numpy/TestNumpyProdLost.java src/jep/test/numpy/TestNumpyGILFreeze.java src/jep/test/numpy/TestNumpyMemoryLeak.java src/jep/test/numpy/TestNumpyProdShared.java src/jep/test/numpy/TestNumpyArrayToString.java src/jep/test/numpy/TestNumpy.java
+copying src/jep/ClassEnquirer.java to build/java/jep.src/jep/ClassEnquirer.java
+copying src/jep/Run.java to build/java/jep.src/jep/Run.java
+copying src/jep/NDArray.java to build/java/jep.src/jep/NDArray.java
+copying src/jep/ClassList.java to build/java/jep.src/jep/ClassList.java
+copying src/jep/Util.java to build/java/jep.src/jep/Util.java
+copying src/jep/NamingConventionClassEnquirer.java to build/java/jep.src/jep/NamingConventionClassEnquirer.java
+copying src/jep/Proxy.java to build/java/jep.src/jep/Proxy.java
+copying src/jep/JepScriptEngineFactory.java to build/java/jep.src/jep/JepScriptEngineFactory.java
+copying src/jep/PyConfig.java to build/java/jep.src/jep/PyConfig.java
+copying src/jep/Jep.java to build/java/jep.src/jep/Jep.java
+copying src/jep/JepScriptEngine.java to build/java/jep.src/jep/JepScriptEngine.java
+copying src/jep/InvocationHandler.java to build/java/jep.src/jep/InvocationHandler.java
+copying src/jep/JepConfig.java to build/java/jep.src/jep/JepConfig.java
+copying src/jep/JepException.java to build/java/jep.src/jep/JepException.java
+copying src/jep/python/PyObject.java to build/java/jep.src/jep/python/PyObject.java
+copying src/jep/python/PyClass.java to build/java/jep.src/jep/python/PyClass.java
+copying src/jep/python/PyModule.java to build/java/jep.src/jep/python/PyModule.java
+copying src/jep/test/TestGetByteArray.java to build/java/jep.test.src/jep/test/TestGetByteArray.java
+copying src/jep/test/Test.java to build/java/jep.test.src/jep/test/Test.java
+copying src/jep/test/TestPreInitVariables.java to build/java/jep.test.src/jep/test/TestPreInitVariables.java
+copying src/jep/test/TestSharedModules.java to build/java/jep.test.src/jep/test/TestSharedModules.java
+copying src/jep/test/TestGetCollectionBoxing.java to build/java/jep.test.src/jep/test/TestGetCollectionBoxing.java
+copying src/jep/test/TestVersionUnsafe.java to build/java/jep.test.src/jep/test/TestVersionUnsafe.java
+copying src/jep/test/types/TestMethodTypes.java to build/java/jep.test.src/jep/test/types/TestMethodTypes.java
+copying src/jep/test/types/TestStaticMethodTypes.java to build/java/jep.test.src/jep/test/types/TestStaticMethodTypes.java
+copying src/jep/test/types/TestFieldTypes.java to build/java/jep.test.src/jep/test/types/TestFieldTypes.java
+copying src/jep/test/types/TestStaticFieldTypes.java to build/java/jep.test.src/jep/test/types/TestStaticFieldTypes.java
+copying src/jep/test/numpy/TestScipyFreeze.java to build/java/jep.test.src/jep/test/numpy/TestScipyFreeze.java
+copying src/jep/test/numpy/TestNumpyProdLost.java to build/java/jep.test.src/jep/test/numpy/TestNumpyProdLost.java
+copying src/jep/test/numpy/TestNumpyGILFreeze.java to build/java/jep.test.src/jep/test/numpy/TestNumpyGILFreeze.java
+copying src/jep/test/numpy/TestNumpyMemoryLeak.java to build/java/jep.test.src/jep/test/numpy/TestNumpyMemoryLeak.java
+copying src/jep/test/numpy/TestNumpyProdShared.java to build/java/jep.test.src/jep/test/numpy/TestNumpyProdShared.java
+copying src/jep/test/numpy/TestNumpyArrayToString.java to build/java/jep.test.src/jep/test/numpy/TestNumpyArrayToString.java
+copying src/jep/test/numpy/TestNumpy.java to build/java/jep.test.src/jep/test/numpy/TestNumpy.java
+running build_javah
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/jep.h jep.Jep
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/jep_object.h jep.python.PyObject
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/invocationhandler.h jep.InvocationHandler
+running build_jar
+copying src/jep/classlist_6.txt to build/java/jep/classlist_6.txt
+copying src/jep/classlist_7.txt to build/java/jep/classlist_7.txt
+copying src/jep/classlist_8.txt to build/java/jep/classlist_8.txt
+/opt/java/openjdk/bin/jar -cf build/java/jep.src-3.6.3.jar -C build/java/jep.src jep
+/opt/java/openjdk/bin/jar -cfe build/java/jep-3.6.3.jar jep.Run -C build/java/ jep
+/opt/java/openjdk/bin/jar -cf build/java/jep.test.src-3.6.3.jar -C build/java/jep.test.src jep
+/opt/java/openjdk/bin/jar -cfe build/java/jep.test-3.6.3.jar test.jep.Test -C build/java/test/ jep
+running build_py
+creating build/lib.linux-x86_64-3.5
+creating build/lib.linux-x86_64-3.5/jep
+copying jep/jdbc.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/redirect_streams.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/version.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/java_import_hook.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/shared_modules_hook.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/console.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/__init__.py -> build/lib.linux-x86_64-3.5/jep
+running build_ext
+building 'jep' extension
+creating build/temp.linux-x86_64-3.5
+creating build/temp.linux-x86_64-3.5/src
+creating build/temp.linux-x86_64-3.5/src/jep
+creating build/temp.linux-x86_64-3.5/src/jep/python
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_util.c -o build/temp.linux-x86_64-3.5/src/jep/jep_util.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjconstructor.c -o build/temp.linux-x86_64-3.5/src/jep/pyjconstructor.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjarray.c -o build/temp.linux-x86_64-3.5/src/jep/pyjarray.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/invocationhandler.c -o build/temp.linux-x86_64-3.5/src/jep/invocationhandler.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyembed.c -o build/temp.linux-x86_64-3.5/src/jep/pyembed.o
+src/jep/pyembed.c: In function ‘maybe_pyc_file’:
+src/jep/pyembed.c:1383:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+ 1383 |                     && (buf[1] << 8 | buf[0]) == halfmagic) {
+      |                                               ^~
+In file included from /usr/include/string.h:535,
+                 from /opt/python-3.5.3/include/python3.5m/Python.h:30,
+                 from src/jep/jep_platform.h:36,
+                 from src/jep/Jep.h:36,
+                 from src/jep/pyembed.c:45:
+In function ‘strcpy’,
+    inlined from ‘pyembed_version_unsafe’ at src/jep/pyembed.c:265:5:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:79:10: warning: ‘__builtin_strcpy’ writing one too many bytes into a region of a size that depends on ‘strlen’ [-Wstringop-overflow=]
+   79 |   return __builtin___strcpy_chk (__dest, __src, __glibc_objsize (__dest));
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/jep/pyembed.c: In function ‘pyembed_version_unsafe’:
+src/jep/pyembed.c:264:15: note: destination object of size [0, 9223372036854775805] allocated by ‘malloc’
+  264 |     version = malloc(sizeof(char) * strlen(pyversion));
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_numpy.c -o build/temp.linux-x86_64-3.5/src/jep/jep_numpy.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterator.c -o build/temp.linux-x86_64-3.5/src/jep/pyjiterator.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jbox.c -o build/temp.linux-x86_64-3.5/src/jep/jbox.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep.c -o build/temp.linux-x86_64-3.5/src/jep/jep.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/convert_p2j.c -o build/temp.linux-x86_64-3.5/src/jep/convert_p2j.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjcollection.c -o build/temp.linux-x86_64-3.5/src/jep/pyjcollection.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmultimethod.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmultimethod.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjfield.c -o build/temp.linux-x86_64-3.5/src/jep/pyjfield.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmethod.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmethod.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterable.c -o build/temp.linux-x86_64-3.5/src/jep/pyjiterable.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjclass.c -o build/temp.linux-x86_64-3.5/src/jep/pyjclass.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_exceptions.c -o build/temp.linux-x86_64-3.5/src/jep/jep_exceptions.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjnumber.c -o build/temp.linux-x86_64-3.5/src/jep/pyjnumber.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjobject.c -o build/temp.linux-x86_64-3.5/src/jep/pyjobject.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjlist.c -o build/temp.linux-x86_64-3.5/src/jep/pyjlist.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmap.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmap.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/python/jep_object.c -o build/temp.linux-x86_64-3.5/src/jep/python/jep_object.o
+gcc -shared build/temp.linux-x86_64-3.5/src/jep/jep_util.o build/temp.linux-x86_64-3.5/src/jep/pyjconstructor.o build/temp.linux-x86_64-3.5/src/jep/pyjarray.o build/temp.linux-x86_64-3.5/src/jep/invocationhandler.o build/temp.linux-x86_64-3.5/src/jep/pyembed.o build/temp.linux-x86_64-3.5/src/jep/jep_numpy.o build/temp.linux-x86_64-3.5/src/jep/pyjiterator.o build/temp.linux-x86_64-3.5/src/jep/jbox.o build/temp.linux-x86_64-3.5/src/jep/jep.o build/temp.linux-x86_64-3.5/src/jep/convert_p2j.o build/temp.linux-x86_64-3.5/src/jep/pyjcollection.o build/temp.linux-x86_64-3.5/src/jep/pyjmultimethod.o build/temp.linux-x86_64-3.5/src/jep/pyjfield.o build/temp.linux-x86_64-3.5/src/jep/pyjmethod.o build/temp.linux-x86_64-3.5/src/jep/pyjiterable.o build/temp.linux-x86_64-3.5/src/jep/pyjclass.o build/temp.linux-x86_64-3.5/src/jep/jep_exceptions.o build/temp.linux-x86_64-3.5/src/jep/pyjnumber.o build/temp.linux-x86_64-3.5/src/jep/pyjobject.o build/temp.linux-x86_64-3.5/src/jep/pyjlist.o build/temp.linux-x86_64-3.5/src/jep/pyjmap.o build/temp.linux-x86_64-3.5/src/jep/python/jep_object.o -L/opt/java/openjdk/jre/lib/amd64/server/ -L/opt/python-3.5.3/lib -ljvm -lpython3.5m -ldl -lpython3.5m -o build/lib.linux-x86_64-3.5/jep.cpython-35m-x86_64-linux-gnu.so -L/opt/python-3.5.3/lib
+running build_scripts
+creating build/scripts-3.5
+copying and adjusting src/scripts/jep -> build/scripts-3.5
+changing mode of build/scripts-3.5/jep from 644 to 755
+ln -sf jep.cpython-35m-x86_64-linux-gnu.so build/lib.linux-x86_64-3.5/libjep.so
+....................................................................................ssssss....ssssssssssss..ss........................................numpy not found, running without numpy support
+running build_ext
+building 'jep' extension
+creating build/asan-temp
+creating build/asan-temp/src
+creating build/asan-temp/src/jep
+creating build/asan-temp/src/jep/python
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_util.c -o build/asan-temp/src/jep/jep_util.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjconstructor.c -o build/asan-temp/src/jep/pyjconstructor.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjarray.c -o build/asan-temp/src/jep/pyjarray.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/invocationhandler.c -o build/asan-temp/src/jep/invocationhandler.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyembed.c -o build/asan-temp/src/jep/pyembed.o
+In file included from /usr/include/string.h:535,
+                 from /opt/python-3.5.3/include/python3.5m/Python.h:30,
+                 from src/jep/jep_platform.h:36,
+                 from src/jep/Jep.h:36,
+                 from src/jep/pyembed.c:45:
+In function 'strcpy',
+    inlined from 'pyembed_version_unsafe' at src/jep/pyembed.c:265:5:
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:79:10: warning: '__builtin_strcpy' writing one too many bytes into a region of a size that depends on 'strlen' [-Wstringop-overflow=]
+   79 |   return __builtin___strcpy_chk (__dest, __src, __glibc_objsize (__dest));
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+src/jep/pyembed.c: In function 'pyembed_version_unsafe':
+src/jep/pyembed.c:264:15: note: destination object of size [0, 9223372036854775805] allocated by 'malloc'
+  264 |     version = malloc(sizeof(char) * strlen(pyversion));
+      |               ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_numpy.c -o build/asan-temp/src/jep/jep_numpy.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterator.c -o build/asan-temp/src/jep/pyjiterator.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jbox.c -o build/asan-temp/src/jep/jbox.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep.c -o build/asan-temp/src/jep/jep.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/convert_p2j.c -o build/asan-temp/src/jep/convert_p2j.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjcollection.c -o build/asan-temp/src/jep/pyjcollection.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmultimethod.c -o build/asan-temp/src/jep/pyjmultimethod.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjfield.c -o build/asan-temp/src/jep/pyjfield.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmethod.c -o build/asan-temp/src/jep/pyjmethod.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterable.c -o build/asan-temp/src/jep/pyjiterable.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjclass.c -o build/asan-temp/src/jep/pyjclass.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_exceptions.c -o build/asan-temp/src/jep/jep_exceptions.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjnumber.c -o build/asan-temp/src/jep/pyjnumber.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjobject.c -o build/asan-temp/src/jep/pyjobject.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjlist.c -o build/asan-temp/src/jep/pyjlist.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmap.c -o build/asan-temp/src/jep/pyjmap.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/python/jep_object.c -o build/asan-temp/src/jep/python/jep_object.o
+creating build/asan-lib
+gcc -shared -fsanitize=address -fsanitize=address -fsanitize=address build/asan-temp/src/jep/jep_util.o build/asan-temp/src/jep/pyjconstructor.o build/asan-temp/src/jep/pyjarray.o build/asan-temp/src/jep/invocationhandler.o build/asan-temp/src/jep/pyembed.o build/asan-temp/src/jep/jep_numpy.o build/asan-temp/src/jep/pyjiterator.o build/asan-temp/src/jep/jbox.o build/asan-temp/src/jep/jep.o build/asan-temp/src/jep/convert_p2j.o build/asan-temp/src/jep/pyjcollection.o build/asan-temp/src/jep/pyjmultimethod.o build/asan-temp/src/jep/pyjfield.o build/asan-temp/src/jep/pyjmethod.o build/asan-temp/src/jep/pyjiterable.o build/asan-temp/src/jep/pyjclass.o build/asan-temp/src/jep/jep_exceptions.o build/asan-temp/src/jep/pyjnumber.o build/asan-temp/src/jep/pyjobject.o build/asan-temp/src/jep/pyjlist.o build/asan-temp/src/jep/pyjmap.o build/asan-temp/src/jep/python/jep_object.o -L/opt/java/openjdk/jre/lib/amd64/server/ -L/opt/python-3.5.3/lib -ljvm -lpython3.5m -ldl -lpython3.5m -o build/asan-lib/jep.cpython-35m-x86_64-linux-gnu.so -L/opt/python-3.5.3/lib
+numpy not found, running without numpy support
+running build_py
+creating build/asan-lib/jep
+copying jep/jdbc.py -> build/asan-lib/jep
+copying jep/redirect_streams.py -> build/asan-lib/jep
+copying jep/version.py -> build/asan-lib/jep
+copying jep/java_import_hook.py -> build/asan-lib/jep
+copying jep/shared_modules_hook.py -> build/asan-lib/jep
+copying jep/console.py -> build/asan-lib/jep
+copying jep/__init__.py -> build/asan-lib/jep
+F
+======================================================================
+FAIL: test_version_unsafe (test_version_unsafe.TestVersionUnsafe)
+Detect the Base off-by-one through the real JEP startup path.
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/opt/javac_case_093/work/base/tests/test_version_unsafe.py", line 92, in test_version_unsafe
+    self.fail('Base revision exposes the pyembed_version_unsafe overflow:\n%s' % output)
+AssertionError: Base revision exposes the pyembed_version_unsafe overflow:
+=================================================================
+==770==ERROR: AddressSanitizer: heap-buffer-overflow on address 0x506000010014 at pc 0x74c8b6fb52c3 bp 0x74c7de32e710 sp 0x74c7de32deb8
+WRITE of size 53 at 0x506000010014 thread T35
+    #0 0x74c8b6fb52c2 in __interceptor_memcpy ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:827
+    #1 0x74c7de36a7c8 in strcpy /usr/include/x86_64-linux-gnu/bits/string_fortified.h:79
+    #2 0x74c7de36a7c8 in pyembed_version_unsafe src/jep/pyembed.c:265
+    #3 0x74c7de36aa35 in pyembed_startup src/jep/pyembed.c:229
+    #4 0x74c8a2c185e6  (<unknown module>)
+
+0x506000010014 is located 0 bytes to the right of 52-byte region [0x50600000ffe0,0x506000010014)
+allocated by thread T35 here:
+    #0 0x74c8b702f887 in __interceptor_malloc ../../../../src/libsanitizer/asan/asan_malloc_linux.cpp:145
+    #1 0x74c7de36a7b6 in pyembed_version_unsafe src/jep/pyembed.c:264
+    #2 0x74c8a2c080f5  (<unknown module>)
+    #3 0x74c8a2c080f5  (<unknown module>)
+    #4 0x74c8a2c0813a  (<unknown module>)
+    #5 0x74c8a2c004e6  (<unknown module>)
+    #6 0x74c8b2ea2771 in JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x6a2771)
+    #7 0x74c8b2e9fd82 in JavaCalls::call_virtual(JavaValue*, KlassHandle, Symbol*, Symbol*, JavaCallArguments*, Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x69fd82)
+    #8 0x74c8b2ea0386 in JavaCalls::call_virtual(JavaValue*, Handle, KlassHandle, Symbol*, Symbol*, Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x6a0386)
+    #9 0x74c8b2f43a8b in thread_entry(JavaThread*, Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x743a8b)
+    #10 0x74c8b32dea26 in JavaThread::thread_main_inner() (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0xadea26)
+    #11 0x74c8b32dfdd9 in JavaThread::run() (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0xadfdd9)
+    #12 0x74c8b316b6e1 in java_start(Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x96b6e1)
+    #13 0x74c8b686ba82  (/lib/x86_64-linux-gnu/libc.so.6+0x94a82)
+
+Thread T35 created by T1 here:
+    #0 0x74c8b6fd3685 in __interceptor_pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:216
+    #1 0x74c8b3175cdb in os::create_thread(Thread*, os::ThreadType, unsigned long) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x975cdb)
+    #2 0x74c8b2f4a872 in JVM_StartThread (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x74a872)
+    #3 0x74c8a2c185e6  (<unknown module>)
+    #4 0x74c8a2c080f5  (<unknown module>)
+    #5 0x74c8a2c080f5  (<unknown module>)
+    #6 0x74c8a2c080f5  (<unknown module>)
+    #7 0x74c8a2c080f5  (<unknown module>)
+    #8 0x74c8a2c080f5  (<unknown module>)
+    #9 0x74c8a2c080f5  (<unknown module>)
+    #10 0x74c8a2c080f5  (<unknown module>)
+    #11 0x74c8a2c080f5  (<unknown module>)
+    #12 0x74c8a2c080f5  (<unknown module>)
+    #13 0x74c8a2c004e6  (<unknown module>)
+    #14 0x74c8b2ea2771 in JavaCalls::call_helper(JavaValue*, methodHandle*, JavaCallArguments*, Thread*) (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x6a2771)
+    #15 0x74c8b2f24140 in jni_invoke_static(JNIEnv_*, JavaValue*, _jobject*, JNICallType, _jmethodID*, JNI_ArgumentPusher*, Thread*) [clone .isra.80] [clone .constprop.128] (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x724140)
+    #16 0x74c8b2f26ad0 in jni_CallStaticVoidMethod (/opt/java/openjdk/jre/lib/amd64/server/libjvm.so+0x726ad0)
+    #17 0x74c8b6a08aff in JavaMain /home/adoptopenjdk/workspace/build-scripts/jobs/release/jobs/jdk8u/jdk8u-release-linux-x64-temurin/workspace/build/src/jdk/src/share/bin/java.c:478
+    #18 0x74c8b686ba82  (/lib/x86_64-linux-gnu/libc.so.6+0x94a82)
+
+Thread T1 created by T0 here:
+    #0 0x74c8b6fd3685 in __interceptor_pthread_create ../../../../src/libsanitizer/asan/asan_interceptors.cpp:216
+    #1 0x74c8b6a0db3e in ContinueInNewThread0 /home/adoptopenjdk/workspace/build-scripts/jobs/release/jobs/jdk8u/jdk8u-release-linux-x64-temurin/workspace/build/src/jdk/src/solaris/bin/java_md_solinux.c:1043
+    #2 0x74c8b6a09ee1 in ContinueInNewThread /home/adoptopenjdk/workspace/build-scripts/jobs/release/jobs/jdk8u/jdk8u-release-linux-x64-temurin/workspace/build/src/jdk/src/share/bin/java.c:2033
+    #3 0x74c8b6a0a5ef in JLI_Launch /home/adoptopenjdk/workspace/build-scripts/jobs/release/jobs/jdk8u/jdk8u-release-linux-x64-temurin/workspace/build/src/jdk/src/share/bin/java.c:304
+    #4 0x6474fd800650 in main (/opt/java/openjdk/bin/java+0x650)
+    #5 0x74c8b6800d8f  (/lib/x86_64-linux-gnu/libc.so.6+0x29d8f)
+
+SUMMARY: AddressSanitizer: heap-buffer-overflow ../../../../src/libsanitizer/sanitizer_common/sanitizer_common_interceptors.inc:827 in __interceptor_memcpy
+Shadow bytes around the buggy address:
+  0x0a0c7fff9fb0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fff9fc0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fff9fd0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fff9fe0: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fff9ff0: fa fa fa fa fa fa fa fa fa fa fa fa 00 00 00 00
+=>0x0a0c7fffa000: 00 00[04]fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fffa010: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fffa020: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fffa030: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fffa040: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+  0x0a0c7fffa050: fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa fa
+Shadow byte legend (one shadow byte represents 8 application bytes):
+  Addressable:           00
+  Partially addressable: 01 02 03 04 05 06 07 
+  Heap left redzone:       fa
+  Freed heap region:       fd
+  Stack left redzone:      f1
+  Stack mid redzone:       f2
+  Stack right redzone:     f3
+  Stack after return:      f5
+  Stack use after scope:   f8
+  Global redzone:          f9
+  Global init order:       f6
+  Poisoned by user:        f7
+  Container overflow:      fc
+  Array cookie:            ac
+  Intra object redzone:    bb
+  ASan internal:           fe
+  Left alloca redzone:     ca
+  Right alloca redzone:    cb
+  Shadow gap:              cc
+==770==ABORTING
+
+
+----------------------------------------------------------------------
+Ran 151 tests in 4.538s
+
+FAILED (failures=1, skipped=20)
+Using JAVA_HOME: /opt/java/openjdk
+== fix: project-native setup.py test ==
+numpy not found, running without numpy support
+running test
+running build
+running setup_java
+running build_java
+/opt/java/openjdk/bin/javac -deprecation -d build/java -classpath src src/jep/ClassEnquirer.java src/jep/Run.java src/jep/NDArray.java src/jep/ClassList.java src/jep/Util.java src/jep/NamingConventionClassEnquirer.java src/jep/Proxy.java src/jep/JepScriptEngineFactory.java src/jep/PyConfig.java src/jep/Jep.java src/jep/JepScriptEngine.java src/jep/InvocationHandler.java src/jep/JepConfig.java src/jep/JepException.java src/jep/python/PyObject.java src/jep/python/PyClass.java src/jep/python/PyModule.java
+/opt/java/openjdk/bin/javac -deprecation -d build/java/test -classpath build/java:src src/jep/test/TestGetByteArray.java src/jep/test/Test.java src/jep/test/TestPreInitVariables.java src/jep/test/TestSharedModules.java src/jep/test/TestGetCollectionBoxing.java src/jep/test/TestVersionUnsafe.java src/jep/test/types/TestMethodTypes.java src/jep/test/types/TestStaticMethodTypes.java src/jep/test/types/TestFieldTypes.java src/jep/test/types/TestStaticFieldTypes.java src/jep/test/numpy/TestScipyFreeze.java src/jep/test/numpy/TestNumpyProdLost.java src/jep/test/numpy/TestNumpyGILFreeze.java src/jep/test/numpy/TestNumpyMemoryLeak.java src/jep/test/numpy/TestNumpyProdShared.java src/jep/test/numpy/TestNumpyArrayToString.java src/jep/test/numpy/TestNumpy.java
+copying src/jep/ClassEnquirer.java to build/java/jep.src/jep/ClassEnquirer.java
+copying src/jep/Run.java to build/java/jep.src/jep/Run.java
+copying src/jep/NDArray.java to build/java/jep.src/jep/NDArray.java
+copying src/jep/ClassList.java to build/java/jep.src/jep/ClassList.java
+copying src/jep/Util.java to build/java/jep.src/jep/Util.java
+copying src/jep/NamingConventionClassEnquirer.java to build/java/jep.src/jep/NamingConventionClassEnquirer.java
+copying src/jep/Proxy.java to build/java/jep.src/jep/Proxy.java
+copying src/jep/JepScriptEngineFactory.java to build/java/jep.src/jep/JepScriptEngineFactory.java
+copying src/jep/PyConfig.java to build/java/jep.src/jep/PyConfig.java
+copying src/jep/Jep.java to build/java/jep.src/jep/Jep.java
+copying src/jep/JepScriptEngine.java to build/java/jep.src/jep/JepScriptEngine.java
+copying src/jep/InvocationHandler.java to build/java/jep.src/jep/InvocationHandler.java
+copying src/jep/JepConfig.java to build/java/jep.src/jep/JepConfig.java
+copying src/jep/JepException.java to build/java/jep.src/jep/JepException.java
+copying src/jep/python/PyObject.java to build/java/jep.src/jep/python/PyObject.java
+copying src/jep/python/PyClass.java to build/java/jep.src/jep/python/PyClass.java
+copying src/jep/python/PyModule.java to build/java/jep.src/jep/python/PyModule.java
+copying src/jep/test/TestGetByteArray.java to build/java/jep.test.src/jep/test/TestGetByteArray.java
+copying src/jep/test/Test.java to build/java/jep.test.src/jep/test/Test.java
+copying src/jep/test/TestPreInitVariables.java to build/java/jep.test.src/jep/test/TestPreInitVariables.java
+copying src/jep/test/TestSharedModules.java to build/java/jep.test.src/jep/test/TestSharedModules.java
+copying src/jep/test/TestGetCollectionBoxing.java to build/java/jep.test.src/jep/test/TestGetCollectionBoxing.java
+copying src/jep/test/TestVersionUnsafe.java to build/java/jep.test.src/jep/test/TestVersionUnsafe.java
+copying src/jep/test/types/TestMethodTypes.java to build/java/jep.test.src/jep/test/types/TestMethodTypes.java
+copying src/jep/test/types/TestStaticMethodTypes.java to build/java/jep.test.src/jep/test/types/TestStaticMethodTypes.java
+copying src/jep/test/types/TestFieldTypes.java to build/java/jep.test.src/jep/test/types/TestFieldTypes.java
+copying src/jep/test/types/TestStaticFieldTypes.java to build/java/jep.test.src/jep/test/types/TestStaticFieldTypes.java
+copying src/jep/test/numpy/TestScipyFreeze.java to build/java/jep.test.src/jep/test/numpy/TestScipyFreeze.java
+copying src/jep/test/numpy/TestNumpyProdLost.java to build/java/jep.test.src/jep/test/numpy/TestNumpyProdLost.java
+copying src/jep/test/numpy/TestNumpyGILFreeze.java to build/java/jep.test.src/jep/test/numpy/TestNumpyGILFreeze.java
+copying src/jep/test/numpy/TestNumpyMemoryLeak.java to build/java/jep.test.src/jep/test/numpy/TestNumpyMemoryLeak.java
+copying src/jep/test/numpy/TestNumpyProdShared.java to build/java/jep.test.src/jep/test/numpy/TestNumpyProdShared.java
+copying src/jep/test/numpy/TestNumpyArrayToString.java to build/java/jep.test.src/jep/test/numpy/TestNumpyArrayToString.java
+copying src/jep/test/numpy/TestNumpy.java to build/java/jep.test.src/jep/test/numpy/TestNumpy.java
+running build_javah
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/jep.h jep.Jep
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/jep_object.h jep.python.PyObject
+/opt/java/openjdk/bin/javah -classpath build/java -o build/include/invocationhandler.h jep.InvocationHandler
+running build_jar
+copying src/jep/classlist_6.txt to build/java/jep/classlist_6.txt
+copying src/jep/classlist_7.txt to build/java/jep/classlist_7.txt
+copying src/jep/classlist_8.txt to build/java/jep/classlist_8.txt
+/opt/java/openjdk/bin/jar -cf build/java/jep.src-3.6.3.jar -C build/java/jep.src jep
+/opt/java/openjdk/bin/jar -cfe build/java/jep-3.6.3.jar jep.Run -C build/java/ jep
+/opt/java/openjdk/bin/jar -cf build/java/jep.test.src-3.6.3.jar -C build/java/jep.test.src jep
+/opt/java/openjdk/bin/jar -cfe build/java/jep.test-3.6.3.jar test.jep.Test -C build/java/test/ jep
+running build_py
+creating build/lib.linux-x86_64-3.5
+creating build/lib.linux-x86_64-3.5/jep
+copying jep/jdbc.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/redirect_streams.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/version.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/java_import_hook.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/shared_modules_hook.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/console.py -> build/lib.linux-x86_64-3.5/jep
+copying jep/__init__.py -> build/lib.linux-x86_64-3.5/jep
+running build_ext
+building 'jep' extension
+creating build/temp.linux-x86_64-3.5
+creating build/temp.linux-x86_64-3.5/src
+creating build/temp.linux-x86_64-3.5/src/jep
+creating build/temp.linux-x86_64-3.5/src/jep/python
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_util.c -o build/temp.linux-x86_64-3.5/src/jep/jep_util.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjconstructor.c -o build/temp.linux-x86_64-3.5/src/jep/pyjconstructor.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjarray.c -o build/temp.linux-x86_64-3.5/src/jep/pyjarray.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/invocationhandler.c -o build/temp.linux-x86_64-3.5/src/jep/invocationhandler.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyembed.c -o build/temp.linux-x86_64-3.5/src/jep/pyembed.o
+src/jep/pyembed.c: In function ‘maybe_pyc_file’:
+src/jep/pyembed.c:1383:47: warning: comparison of integer expressions of different signedness: ‘int’ and ‘unsigned int’ [-Wsign-compare]
+ 1383 |                     && (buf[1] << 8 | buf[0]) == halfmagic) {
+      |                                               ^~
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_numpy.c -o build/temp.linux-x86_64-3.5/src/jep/jep_numpy.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterator.c -o build/temp.linux-x86_64-3.5/src/jep/pyjiterator.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jbox.c -o build/temp.linux-x86_64-3.5/src/jep/jbox.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep.c -o build/temp.linux-x86_64-3.5/src/jep/jep.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/convert_p2j.c -o build/temp.linux-x86_64-3.5/src/jep/convert_p2j.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjcollection.c -o build/temp.linux-x86_64-3.5/src/jep/pyjcollection.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmultimethod.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmultimethod.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjfield.c -o build/temp.linux-x86_64-3.5/src/jep/pyjfield.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmethod.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmethod.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterable.c -o build/temp.linux-x86_64-3.5/src/jep/pyjiterable.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjclass.c -o build/temp.linux-x86_64-3.5/src/jep/pyjclass.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_exceptions.c -o build/temp.linux-x86_64-3.5/src/jep/jep_exceptions.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjnumber.c -o build/temp.linux-x86_64-3.5/src/jep/pyjnumber.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjobject.c -o build/temp.linux-x86_64-3.5/src/jep/pyjobject.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjlist.c -o build/temp.linux-x86_64-3.5/src/jep/pyjlist.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmap.c -o build/temp.linux-x86_64-3.5/src/jep/pyjmap.o
+gcc -Wno-unused-result -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/python/jep_object.c -o build/temp.linux-x86_64-3.5/src/jep/python/jep_object.o
+gcc -shared build/temp.linux-x86_64-3.5/src/jep/jep_util.o build/temp.linux-x86_64-3.5/src/jep/pyjconstructor.o build/temp.linux-x86_64-3.5/src/jep/pyjarray.o build/temp.linux-x86_64-3.5/src/jep/invocationhandler.o build/temp.linux-x86_64-3.5/src/jep/pyembed.o build/temp.linux-x86_64-3.5/src/jep/jep_numpy.o build/temp.linux-x86_64-3.5/src/jep/pyjiterator.o build/temp.linux-x86_64-3.5/src/jep/jbox.o build/temp.linux-x86_64-3.5/src/jep/jep.o build/temp.linux-x86_64-3.5/src/jep/convert_p2j.o build/temp.linux-x86_64-3.5/src/jep/pyjcollection.o build/temp.linux-x86_64-3.5/src/jep/pyjmultimethod.o build/temp.linux-x86_64-3.5/src/jep/pyjfield.o build/temp.linux-x86_64-3.5/src/jep/pyjmethod.o build/temp.linux-x86_64-3.5/src/jep/pyjiterable.o build/temp.linux-x86_64-3.5/src/jep/pyjclass.o build/temp.linux-x86_64-3.5/src/jep/jep_exceptions.o build/temp.linux-x86_64-3.5/src/jep/pyjnumber.o build/temp.linux-x86_64-3.5/src/jep/pyjobject.o build/temp.linux-x86_64-3.5/src/jep/pyjlist.o build/temp.linux-x86_64-3.5/src/jep/pyjmap.o build/temp.linux-x86_64-3.5/src/jep/python/jep_object.o -L/opt/java/openjdk/jre/lib/amd64/server/ -L/opt/python-3.5.3/lib -ljvm -lpython3.5m -ldl -lpython3.5m -o build/lib.linux-x86_64-3.5/jep.cpython-35m-x86_64-linux-gnu.so -L/opt/python-3.5.3/lib
+running build_scripts
+creating build/scripts-3.5
+copying and adjusting src/scripts/jep -> build/scripts-3.5
+changing mode of build/scripts-3.5/jep from 644 to 755
+ln -sf jep.cpython-35m-x86_64-linux-gnu.so build/lib.linux-x86_64-3.5/libjep.so
+....................................................................................ssssss....ssssssssssss..ss........................................numpy not found, running without numpy support
+running build_ext
+building 'jep' extension
+creating build/asan-temp
+creating build/asan-temp/src
+creating build/asan-temp/src/jep
+creating build/asan-temp/src/jep/python
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_util.c -o build/asan-temp/src/jep/jep_util.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjconstructor.c -o build/asan-temp/src/jep/pyjconstructor.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjarray.c -o build/asan-temp/src/jep/pyjarray.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/invocationhandler.c -o build/asan-temp/src/jep/invocationhandler.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyembed.c -o build/asan-temp/src/jep/pyembed.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_numpy.c -o build/asan-temp/src/jep/jep_numpy.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterator.c -o build/asan-temp/src/jep/pyjiterator.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jbox.c -o build/asan-temp/src/jep/jbox.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep.c -o build/asan-temp/src/jep/jep.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/convert_p2j.c -o build/asan-temp/src/jep/convert_p2j.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjcollection.c -o build/asan-temp/src/jep/pyjcollection.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmultimethod.c -o build/asan-temp/src/jep/pyjmultimethod.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjfield.c -o build/asan-temp/src/jep/pyjfield.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmethod.c -o build/asan-temp/src/jep/pyjmethod.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjiterable.c -o build/asan-temp/src/jep/pyjiterable.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjclass.c -o build/asan-temp/src/jep/pyjclass.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/jep_exceptions.c -o build/asan-temp/src/jep/jep_exceptions.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjnumber.c -o build/asan-temp/src/jep/pyjnumber.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjobject.c -o build/asan-temp/src/jep/pyjobject.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjlist.c -o build/asan-temp/src/jep/pyjlist.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/pyjmap.c -o build/asan-temp/src/jep/pyjmap.o
+gcc -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fsanitize=address -fPIC -DPACKAGE=jep -DUSE_DEALLOC=1 -DJEP_NUMPY_ENABLED=0 -DVERSION="3.6.3" -I/opt/java/openjdk/include -I/opt/java/openjdk/include/linux -Isrc/jep -Ibuild/include -I/opt/python-3.5.3/include/python3.5m -c src/jep/python/jep_object.c -o build/asan-temp/src/jep/python/jep_object.o
+creating build/asan-lib
+gcc -shared -fsanitize=address -fsanitize=address -fsanitize=address build/asan-temp/src/jep/jep_util.o build/asan-temp/src/jep/pyjconstructor.o build/asan-temp/src/jep/pyjarray.o build/asan-temp/src/jep/invocationhandler.o build/asan-temp/src/jep/pyembed.o build/asan-temp/src/jep/jep_numpy.o build/asan-temp/src/jep/pyjiterator.o build/asan-temp/src/jep/jbox.o build/asan-temp/src/jep/jep.o build/asan-temp/src/jep/convert_p2j.o build/asan-temp/src/jep/pyjcollection.o build/asan-temp/src/jep/pyjmultimethod.o build/asan-temp/src/jep/pyjfield.o build/asan-temp/src/jep/pyjmethod.o build/asan-temp/src/jep/pyjiterable.o build/asan-temp/src/jep/pyjclass.o build/asan-temp/src/jep/jep_exceptions.o build/asan-temp/src/jep/pyjnumber.o build/asan-temp/src/jep/pyjobject.o build/asan-temp/src/jep/pyjlist.o build/asan-temp/src/jep/pyjmap.o build/asan-temp/src/jep/python/jep_object.o -L/opt/java/openjdk/jre/lib/amd64/server/ -L/opt/python-3.5.3/lib -ljvm -lpython3.5m -ldl -lpython3.5m -o build/asan-lib/jep.cpython-35m-x86_64-linux-gnu.so -L/opt/python-3.5.3/lib
+numpy not found, running without numpy support
+running build_py
+creating build/asan-lib/jep
+copying jep/jdbc.py -> build/asan-lib/jep
+copying jep/redirect_streams.py -> build/asan-lib/jep
+copying jep/version.py -> build/asan-lib/jep
+copying jep/java_import_hook.py -> build/asan-lib/jep
+copying jep/shared_modules_hook.py -> build/asan-lib/jep
+copying jep/console.py -> build/asan-lib/jep
+copying jep/__init__.py -> build/asan-lib/jep
+.
+----------------------------------------------------------------------
+Ran 151 tests in 4.610s
+
+OK (skipped=20)
+Using JAVA_HOME: /opt/java/openjdk
+{
+  "instance_id": "ninia__jep-79",
+  "mode": "swebench_ubuntu_asan_project_native_test_style",
+  "base_image": "eclipse-temurin:8-jdk-jammy",
+  "python_distribution": "Python-3.5.3",
+  "base_command_exit_code": 0,
+  "fix_command_exit_code": 0,
+  "base_failure_detected": true,
+  "asan_failure_detected": true,
+  "fix_success_detected": true,
+  "test_framework": "python setup.py test -> jep.Run -> unittest discover",
+  "test_command": "python setup.py test"
+}
+Project-native historical validation passed: Base fails and Fix passes.

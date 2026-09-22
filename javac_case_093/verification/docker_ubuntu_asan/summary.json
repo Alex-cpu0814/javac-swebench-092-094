@@ -1,0 +1,13 @@
+{
+  "instance_id": "ninia__jep-79",
+  "mode": "swebench_ubuntu_asan_project_native_test_style",
+  "base_image": "eclipse-temurin:8-jdk-jammy",
+  "python_distribution": "Python-3.5.3",
+  "base_command_exit_code": 0,
+  "fix_command_exit_code": 0,
+  "base_failure_detected": true,
+  "asan_failure_detected": true,
+  "fix_success_detected": true,
+  "test_framework": "python setup.py test -> jep.Run -> unittest discover",
+  "test_command": "python setup.py test"
+}

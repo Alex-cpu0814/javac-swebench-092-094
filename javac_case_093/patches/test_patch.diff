@@ -3,20 +3,16 @@ new file mode 100644
 index 0000000..0000000
 --- /dev/null
 +++ b/src/jep/test/TestVersionUnsafe.java
-@@ -0,0 +1,17 @@
+@@ -0,0 +1,14 @@
 +package jep.test;
 +
 +import jep.Jep;
 +
-+/**
-+ * Starts and closes the top-level Jep interpreter.
-+ *
-+ * The native startup path calls pyembed_version_unsafe().
-+ */
++/** Starts and closes the top-level interpreter through the JNI startup path. */
 +public class TestVersionUnsafe {
 +
 +    public static void main(String[] args) throws Exception {
-+        Jep jep = new Jep(false, System.getProperty("java.library.path"));
++        Jep jep = new Jep(false);
 +        jep.close();
 +    }
 +
@@ -27,8 +23,11 @@ new file mode 100644
 index 0000000..0000000
 --- /dev/null
 +++ b/tests/test_version_unsafe.py
-@@ -0,0 +1,60 @@
+@@ -0,0 +1,92 @@
++import glob
 +import os
++import shutil
++import shlex
 +import subprocess
 +import sys
 +import unittest
@@ -41,27 +40,28 @@ index 0000000..0000000
 +class TestVersionUnsafe(unittest.TestCase):
 +
 +    def test_version_unsafe(self):
-+        # Rebuild the native extension with AddressSanitizer so the one-byte
-+        # overflow in the Base implementation is detected deterministically.
++        """Detect the Base off-by-one through the real JEP startup path.
++
++        The isolated child uses AddressSanitizer so the test is deterministic
++        across the Ubuntu glibc versions used by the benchmark containers.
++        """
 +        env = os.environ.copy()
-+        compiler = env.get('CC', 'gcc')
++        compiler = shlex.split(env.get('CC', 'gcc'))
++        self.assertTrue(compiler, 'No C compiler configured')
++
 +        try:
 +            asan = subprocess.check_output(
-+                [compiler, '-print-file-name=libasan.so'])
++                compiler + ['-print-file-name=libasan.so'],
++                stderr=subprocess.STDOUT)
 +            asan = asan.decode().strip()
 +        except (OSError, subprocess.CalledProcessError):
-+            self.skipTest('GCC AddressSanitizer is unavailable')
-+
-+        if not asan or not os.path.isfile(asan):
-+            self.skipTest('GCC AddressSanitizer is unavailable')
++            self.fail('GCC AddressSanitizer is unavailable')
++        self.assertTrue(asan and os.path.isfile(asan), asan)
 +
 +        for variable in ('CFLAGS', 'LDFLAGS'):
 +            current = env.get(variable, '').strip()
 +            env[variable] = (current + ' -fsanitize=address').strip()
 +
-+        # Do not preload ASan into the Python process that performs the build.
-+        # Python 3.5 exits with interpreter allocations still live, which
-+        # makes LeakSanitizer report a false failure before the test starts.
 +        build_env = env.copy()
 +        build_env.pop('LD_PRELOAD', None)
 +        java_home = System.getProperty('java.home')
@@ -69,22 +69,50 @@ index 0000000..0000000
 +            java_home = java_home[:-len(os.sep + 'jre')]
 +        build_env['JAVA_HOME'] = java_home
 +
-+        preload = [asan]
-+        if env.get('LD_PRELOAD'):
-+            preload.append(env['LD_PRELOAD'])
-+        env['LD_PRELOAD'] = os.pathsep.join(preload)
-+        env['ASAN_OPTIONS'] = 'detect_leaks=0:halt_on_error=1'
++        build_lib = os.path.join('build', 'asan-lib')
++        build_temp = os.path.join('build', 'asan-temp')
++        shutil.rmtree(build_lib, ignore_errors=True)
++        shutil.rmtree(build_temp, ignore_errors=True)
++        subprocess.check_call([
++            sys.executable, 'setup.py', 'build_ext', '--force',
++            '--build-lib', build_lib, '--build-temp', build_temp,
++        ], env=build_env)
++        subprocess.check_call([
++            sys.executable, 'setup.py', 'build_py', '--build-lib', build_lib,
++        ], env=build_env)
 +
-+        subprocess.check_call(
-+            [sys.executable, 'setup.py', 'build_ext', '--force'],
-+            env=build_env)
++        native_libs = glob.glob(os.path.join(build_lib, 'jep*.so'))
++        self.assertEqual(len(native_libs), 1, native_libs)
++        native_lib = native_libs[0]
++        os.symlink(os.path.basename(native_lib), os.path.join(build_lib, 'libjep.so'))
++
++        java_cmd = build_java_process_cmd('jep.test.TestVersionUnsafe')
++        java_cmd = [
++            '-Djava.library.path=' + os.path.abspath(build_lib)
++            if arg.startswith('-Djava.library.path=') else arg
++            for arg in java_cmd
++        ]
++        run_env = env.copy()
++        run_env['PYTHONPATH'] = (
++            os.path.abspath(build_lib) + os.pathsep +
++            run_env.get('PYTHONPATH', '')
++        )
++        preload = [asan]
++        if run_env.get('LD_PRELOAD'):
++            preload.append(run_env['LD_PRELOAD'])
++        run_env['LD_PRELOAD'] = os.pathsep.join(preload)
++        run_env['ASAN_OPTIONS'] = 'detect_leaks=0:halt_on_error=1'
 +
 +        process = subprocess.Popen(
-+            build_java_process_cmd('jep.test.TestVersionUnsafe'),
-+            stdout=subprocess.PIPE,
-+            stderr=subprocess.PIPE,
-+            env=env)
++            java_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
++            env=run_env)
 +        stdout, stderr = process.communicate()
-+        if process.returncode != 0:
-+            self.fail(stderr or stdout)
++        output = (stdout + stderr).decode('utf-8', 'replace')
 +
++        if process.returncode == 0:
++            return
++
++        self.assertIn('AddressSanitizer', output)
++        self.assertIn('heap-buffer-overflow', output)
++        self.assertIn('pyembed_version_unsafe', output)
++        self.fail('Base revision exposes the pyembed_version_unsafe overflow:\n%s' % output)
